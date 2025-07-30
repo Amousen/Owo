@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SécuRoute Bénin - Signalement d'infractions routières</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="bg-white" cz-shortcut-listen="true">
+    <header class="w-full bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-8">
+                    <div class="text-2xl text-primary font-bold">
+                        SécuRoute
+                    </div>
+                    <nav class="hidden md:flex space-x-8">
+                        <a href="">Accueil</a>
+                        <a href="#signaler" class="text-gray-700 hover:text-primary transition-colors">Signaler</a>
+                        <a href="">Mes Signalements</a>
+                        <a href="#guide" class="text-gray-700 hover:text-primary transition-colors">Guide</a>
+                    </nav>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="text-gray-700 hover:text-primary transition-colors">
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="ri-global-line"></i>
+                        </div>
+                    </button>
+                    <button
+                        class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-blue-700 transition-colors whitespace-nowrap">
+                        Se connecter
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+   <main>
+        
+        <section id="signaler" class="py-20 bg-gray-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Signaler une infraction</h2>
+                    <p class="text-lg text-gray-600">Remplissez le formulaire ci-dessous pour soumettre votre
+                        signalement</p>
+                </div>
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Type d'infraction *</label>
+                                <div class="relative">
+                                    <select
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent pr-8">
+                                        <option>Sélectionner le type d'infraction</option>
+                                        <option>Excès de vitesse</option>
+                                        <option>Non-respect des feux</option>
+                                        <option>Stationnement dangereux</option>
+                                        <option>Conduite en état d'ivresse</option>
+                                        <option>Usage du téléphone au volant</option>
+                                        <option>Autre</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Localisation *</label>
+                                <div class="space-y-3">
+                                    <div class="flex gap-2">
+                                        <div class="relative flex-1">
+                                            <input type="text" id="location"
+                                                placeholder="Adresse ou lieu de l&#39;infraction"
+                                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                                                readonly="">
+                                        </div>
+                                        <div class="relative">
+                                            <button type="button" id="locate-btn" onclick="getLocation()"
+                                                class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-blue-700 transition-colors whitespace-nowrap flex items-center gap-2">
+                                                <div class="w-5 h-5 flex items-center justify-center">
+                                                    <i class="ri-map-pin-line"></i>
+                                                </div>
+                                                <span>Me localiser</span>
+                                            </button>
+                                            <div id="location-error"
+                                                class="hidden absolute top-full left-0 right-0 mt-2 p-2 bg-red-100 text-red-600 text-sm rounded-lg">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="map" class="w-full h-[300px] rounded-lg border border-gray-200"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Date *</label>
+                                <input type="date"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Heure *</label>
+                                <input type="time"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Numéro d'immatriculation</label>
+                            <input type="text" placeholder="Ex: AB 1234 CD (optionnel)"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Photos/Vidéos *</label>
+                            <div
+                                class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-primary transition-colors">
+                                <div class="w-12 h-12 flex items-center justify-center mx-auto mb-4 text-gray-400">
+                                    <i class="ri-upload-cloud-line text-3xl"></i>
+                                </div>
+                                <p class="text-gray-600 mb-2">Glissez vos fichiers ici ou cliquez pour sélectionner</p>
+                                <p class="text-sm text-gray-500">Formats acceptés : JPG, PNG, MP4 (max 10 Mo)</p>
+                                <input type="file" multiple="" accept="image/*,video/*" class="hidden">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Description de
+                                l'incident</label>
+                            <textarea rows="4" placeholder="Décrivez brièvement ce qui s&#39;est passé..."
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent resize-none"></textarea>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="relative">
+                                <input type="checkbox" id="terms" class="sr-only">
+                                <div class="w-5 h-5 border-2 border-gray-300 rounded cursor-pointer flex items-center justify-center hover:border-primary transition-colors"
+                                    onclick="toggleCheckbox(this)">
+                                    <i class="ri-check-line text-white text-sm hidden"></i>
+                                </div>
+                            </div>
+                            <label for="terms" class="text-sm text-gray-600 cursor-pointer">
+                                J'accepte les <a href="https://readdy.link/share/bc7365a02e5a1e69c6b29b93bb6252c7#"
+                                    class="text-primary hover:underline">conditions d'utilisation</a> et certifie que
+                                les informations fournies sont exactes
+                            </label>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-primary text-white py-4 !rounded-button text-lg font-semibold hover:bg-blue-700 transition-colors whitespace-nowrap">
+                            Soumettre le signalement
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+   </main>
+    <footer class="bg-gray-900 text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    © 2025 SécuRoute Bénin. Tous droits réservés.
+                </p>
+                <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                    <div class="w-6 h-6 flex items-center justify-center text-gray-400">
+                        <i class="ri-shield-check-line"></i>
+                    </div>
+                    <span class="text-gray-400 text-sm">Données sécurisées</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+        <script id="geolocation-functionality">
+        let map;
+        let marker;
+        function initMap(lat = 6.3670, lng = 2.3874) {
+            try {
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: { lat, lng },
+                    zoom: 15,
+                    styles: [
+                        {
+                            featureType: 'poi',
+                            elementType: 'labels',
+                            stylers: [{ visibility: 'off' }]
+                        }
+                    ],
+                    mapTypeControl: false,
+                    streetViewControl: false,
+                    fullscreenControl: false
+                });
+                marker = new google.maps.Marker({
+                    position: { lat, lng },
+                    map: map,
+                    draggable: true,
+                    animation: google.maps.Animation.DROP,
+                    title: 'Déplacez-moi pour définir l\'emplacement'
+                });
+                // Add error handling
+            } catch (error) {
+                console.error('Error initializing map:', error);
+                document.getElementById('map').innerHTML = '<div class="flex items-center justify-center h-full bg-gray-100 rounded-lg"><p class="text-gray-500">Impossible de charger la carte</p></div>';
+            }
+        }
+        // Ensure map is initialized only after Google Maps API is loaded
+        window.initMap = initMap;
+        google.maps.event.addListener(marker, 'dragend', function () {
+            const position = marker.getPosition();
+            updateLocationInput(position.lat(), position.lng());
+        });
+
+        function updateLocationInput(lat, lng) {
+            const locationInput = document.getElementById('location');
+            locationInput.value = `${lat.toFixed(6)}, ${lng.toFixed(6)}`;
+        }
+        function getLocation() {
+            const locationButton = document.getElementById('locate-btn');
+            if (!locationButton) return;
+            const originalContent = locationButton.innerHTML;
+            const loadingState = '<div class="w-5 h-5 flex items-center justify-center"><i class="ri-loader-4-line animate-spin"></i></div><span>Localisation...</span>';
+            function showError(message) {
+                const errorDiv = document.getElementById('location-error');
+                if (errorDiv) {
+                    errorDiv.textContent = message;
+                    errorDiv.classList.remove('hidden');
+                    setTimeout(() => {
+                        errorDiv.classList.add('hidden');
+                    }, 3000);
+                }
+                locationButton.innerHTML = originalContent;
+            }
+            if (navigator.geolocation) {
+                locationButton.innerHTML = loadingState;
+                locationButton.disabled = true;
+                navigator.geolocation.getCurrentPosition(
+                    function (position) {
+                        const lat = position.coords.latitude;
+                        const lng = position.coords.longitude;
+                        updateLocationInput(lat, lng);
+                        const newPosition = new google.maps.LatLng(lat, lng);
+                        if (map && marker) {
+                            map.setCenter(newPosition);
+                            map.setZoom(15);
+                            marker.setPosition(newPosition);
+                            marker.setAnimation(google.maps.Animation.DROP);
+                        }
+                        locationButton.innerHTML = originalContent;
+                        locationButton.disabled = false;
+                    },
+                    function (error) {
+                        const errorMessages = {
+                            1: "Veuillez autoriser l'accès à votre position",
+                            2: "Position indisponible",
+                            3: "Délai d'attente dépassé"
+                        };
+                        showError(errorMessages[error.code] || "Erreur de géolocalisation");
+                        locationButton.disabled = false;
+                    },
+                    {
+                        enableHighAccuracy: true,
+                        timeout: 10000,
+                        maximumAge: 0
+                    }
+                );
+            } else {
+                showError("La géolocalisation n'est pas supportée par votre navigateur");
+            }
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            initMap();
+        });
+    </script>
+    <script id="checkbox-functionality">
+        function toggleCheckbox(element) {
+            const checkbox = element.querySelector('i');
+            const isChecked = !checkbox.classList.contains('hidden');
+            if (isChecked) {
+                checkbox.classList.add('hidden');
+                element.classList.remove('bg-primary', 'border-primary');
+                element.classList.add('border-gray-300');
+            } else {
+                checkbox.classList.remove('hidden');
+                element.classList.add('bg-primary', 'border-primary');
+                element.classList.remove('border-gray-300');
+            }
+        }
+    </script>
+    <script id="file-upload-functionality">
+        document.addEventListener('DOMContentLoaded', function () {
+            const uploadArea = document.querySelector('.border-dashed');
+            const fileInput = uploadArea.querySelector('input[type="file"]');
+            uploadArea.addEventListener('click', () => {
+                fileInput.click();
+            });
+            uploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadArea.classList.add('border-primary', 'bg-primary/5');
+            });
+            uploadArea.addEventListener('dragleave', (e) => {
+                e.preventDefault();
+                uploadArea.classList.remove('border-primary', 'bg-primary/5');
+            });
+            uploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadArea.classList.remove('border-primary', 'bg-primary/5');
+                const files = e.dataTransfer.files;
+                handleFiles(files);
+            });
+            fileInput.addEventListener('change', (e) => {
+                handleFiles(e.target.files);
+            });
+            function handleFiles(files) {
+                console.log('Fichiers sélectionnés:', files.length);
+            }
+        });
+    </script>
+
+</body>
+
+</html>
