@@ -2,227 +2,414 @@
 <html lang="fr">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SécuRoute Bénin - Signalement d'infractions routières</title>
-    <link rel="stylesheet" href="style.css">
+    <title>CivActu - Citoyens pour la Sécurité Routière</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
 
+        . !rounded-button {
+            border-radius: 8px !important;
+        }
+    </style>
 </head>
 
-<body class="bg-white" cz-shortcut-listen="true">
-    <header class="w-full bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <div class="flex items-center space-x-8">
-                    <div class="text-2xl text-primary font-bold">
-                        SécuRoute
-                    </div>
-                    <nav class="hidden md:flex space-x-8">
-                        <a href="index.html">Accueil</a>
-                        <a href="signale.html" class="text-gray-700 hover:text-primary transition-colors">Signaler</a>
-                        <a href="">Mes Signalements</a>
-                        <a href="#guide" class="text-gray-700 hover:text-primary transition-colors">Guide</a>
-                    </nav>
+                <div class="flex items-center">
+                    <div class=" text-2xl text-primary font-bold">CivActu</div>
+                    <!-- <span class="hidden sm:block ml-2 text-gray-600 text-sm">Citoyens pour la Sécurité Routière</span> -->
                 </div>
-                <div class="flex items-center space-x-4">
-                    <button class="text-gray-700 hover:text-primary transition-colors">
-                        <div class="w-6 h-6 flex items-center justify-center">
-                            <i class="ri-global-line"></i>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-gray-900 hover:text-primary px-3 py-2 text-sm font-medium">Accueil</a>
+                        <a href="" data-readdy="true" class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium">Signaler</a>
+                        <a href="#" class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium">Mes
+                            Signalements</a>
+                        <a href="#" class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium">Guide</a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <button
+                        class="bg-primary text-white px-6 py-2 !rounded-button text-sm font-medium hover:bg-blue-700 transition-colors whitespace-nowrap">
+                        Se connecter
+                    </button>
+                </div>
+                <div class="flex md:hidden">
+                    <button type="button"
+                        class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-primary hover:bg-gray-100">
+                        <i class="ri-menu-line text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mobile-menu hidden md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#"
+                        class="block text-gray-900 hover:text-primary px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-primary">Accueil</a>
+                    <a href="https://readdy.ai/home/80cd573c-7bbb-420c-bed5-422c5486ae45/b5242341-bbb9-42bd-aec4-2373ae9dcb82"
+                        data-readdy="true"
+                        class="block text-gray-600 hover:text-primary px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-primary">Signaler</a>
+                    <a href="#"
+                        class="block text-gray-600 hover:text-primary px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-primary">Mes
+                        Signalements</a>
+                    <a href="#"
+                        class="block text-gray-600 hover:text-primary px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-primary">Guide</a>
+                    <div class="mt-4 px-3">
+                        <button
+                            class="w-full bg-primary text-white px-6 py-2 !rounded-button text-sm font-medium hover:bg-blue-700 transition-colors whitespace-nowrap">
+                            Se connecter
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center"
+        style="background-image: url('image/bannier1.jpg'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"></div>
+        <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl">
+                <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                    Ensemble, rendons nos routes plus sûres
+                </h1>
+                <p class="text-xl text-gray-200 mb-8 leading-relaxed">
+                    Participez activement à la sécurité routière en signalant les infractions. Votre vigilance contribue
+                    à protéger tous les usagers de la route au Bénin.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button
+                        class="bg-primary text-white px-8 py-4 !rounded-button text-lg font-semibold hover:bg-blue-700 transition-colors whitespace-nowrap flex items-center justify-center">
+                        <div class="w-6 h-6 flex items-center justify-center mr-3">
+                            <i class="ri-camera-line text-lg"></i>
                         </div>
+                        Signaler une infraction
                     </button>
                     <button
-                        class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-blue-700 transition-colors whitespace-nowrap">
-                        Se connecter
+                        class="bg-white/20 backdrop-blur-sm text-white border-2 border-white/30 px-8 py-4 !rounded-button text-lg font-semibold hover:bg-white/30 transition-colors whitespace-nowrap flex items-center justify-center">
+                        <div class="w-6 h-6 flex items-center justify-center mr-3">
+                            <i class="ri-book-open-line text-lg"></i>
+                        </div>
+                        Consulter le guide
                     </button>
                 </div>
             </div>
         </div>
-    </header>
-    <main>
-        <section class="relative min-h-screen flex items-center"
-            style="background-image: url(image/blog-sidebar-image01.jpg); background-size: cover; background-position: center; background-repeat: no-repeat;">
-            <div class="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-transparent"></div>
-            <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="max-w-2xl">
-                    <h1 class="text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                        Ensemble pour des routes plus sûres au Bénin
-                    </h1>
-                    <p class="text-xl text-gray-700 mb-8 leading-relaxed">
-                        Signalez les infractions routières et contribuez à améliorer la sécurité de tous. Votre
-                        vigilance peut sauver des vies.
+    </section>
+    <!-- About Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <img src="image/about.jpg" alt="Équipe CivActu"
+                        class="rounded-xl shadow-lg object-cover w-full h-96">
+                </div>
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">À propos de CivActu</h2>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        CivActu est une initiative citoyenne qui révolutionne la sécurité routière au Bénin. Notre
+                        plateforme permet aux citoyens de devenir des acteurs actifs de la prévention routière en
+                        signalant les infractions observées.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <button class="bg-primary text-white px-8 py-4 !rounded-button 
-                            text-lg font-semibold hover:bg-blue-700 transition-colors
-                             whitespace-nowrap flex items-center justify-center space-x-2">
-
-                          <a href="signale.html">  <span>Signaler une infraction</span></a>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="ri-shield-check-line text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-2">Sécurité et confidentialité</h3>
+                                <p class="text-gray-600">Vos données sont protégées et traitées en conformité avec les
+                                    lois béninoises.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="ri-team-line text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-2">Collaboration citoyenne</h3>
+                                <p class="text-gray-600">Ensemble, nous créons un réseau de vigilance pour des routes
+                                    plus sûres.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="ri-line-chart-line text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-2">Impact mesurable</h3>
+                                <p class="text-gray-600">Chaque signalement contribue à réduire les accidents et
+                                    améliorer la sécurité.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-gray-200">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary mb-2">15,847</div>
+                            <div class="text-sm text-gray-600">Utilisateurs actifs</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-secondary mb-2">3,294</div>
+                            <div class="text-sm text-gray-600">Signalements traités</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-orange-500 mb-2">89%</div>
+                            <div class="text-sm text-gray-600">Taux de résolution</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- How it works Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Comment ça marche ?</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Signalez une infraction routière en trois étapes simples et contribuez à améliorer la sécurité de
+                    tous, tout en respectant la vie privée et la protection des données
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="ri-camera-fill text-3xl text-white"></i>
+                    </div>
+                    <div
+                        class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-4 text-sm font-bold">
+                        1</div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Prenez une photo/vidéo</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Capturez l'infraction routière avec votre smartphone. Assurez-vous que la plaque
+                        d'immatriculation et le contexte soient visibles.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="ri-file-text-fill text-3xl text-white"></i>
+                    </div>
+                    <div
+                        class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-4 text-sm font-bold">
+                        2</div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Remplissez le formulaire</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Complétez les informations : lieu, date, heure, type d'infraction. Plus les détails sont précis,
+                        plus le traitement sera efficace.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="ri-search-eye-fill text-3xl text-white"></i>
+                    </div>
+                    <div
+                        class="bg-orange-500 text-white rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-4 text-sm font-bold">
+                        3</div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Suivez le traitement</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Recevez des notifications sur l'évolution de votre signalement : reçu, en cours de traitement,
+                        clôturé.
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <button
+                    class="bg-primary text-white px-8 py-3 !rounded-button font-semibold hover:bg-blue-700 transition-colors whitespace-nowrap">
+                    En savoir plus sur le processus
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- News Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Actualités</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Restez informé des dernières nouvelles et actions en matière de sécurité routière au Bénin
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow overflow-hidden">
+                    <img src="image/femme-avec-voiture-cassee-et-triangle.jpg" alt="Campagne de sensibilisation" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                <i class="ri-calendar-line text-primary"></i>
+                            </div>
+                            <span class="text-sm text-gray-500">2 Août 2025</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Grande campagne de sensibilisation à
+                            Cotonou</h3>
+                        <p class="text-gray-600 mb-4">La Police Républicaine lance une campagne majeure de
+                            sensibilisation sur la sécurité routière dans les écoles de Cotonou.</p>
+                        <a href="#"
+                            class="text-primary font-medium hover:text-blue-700 transition-colors flex items-center">
+                            Lire la suite
+                            <i class="ri-arrow-right-line ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow overflow-hidden">
+                    <img src="image/atu1.jpg" alt="Nouveaux radars" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                <i class="ri-calendar-line text-primary"></i>
+                            </div>
+                            <span class="text-sm text-gray-500">1 Août 2025</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Installation de nouveaux radars
+                            intelligents</h3>
+                        <p class="text-gray-600 mb-4">Le ministère déploie une nouvelle génération de radars
+                            intelligents sur les axes routiers principaux.</p>
+                        <a href="#"
+                            class="text-primary font-medium hover:text-blue-700 transition-colors flex items-center">
+                            Lire la suite
+                            <i class="ri-arrow-right-line ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow overflow-hidden">
+                    <img src="image/actu4.jpg" alt="Application mobile" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                <i class="ri-calendar-line text-primary"></i>
+                            </div>
+                            <span class="text-sm text-gray-500">31 Juillet 2025</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Succès du lancement de l'application
+                            CivActu</h3>
+                        <p class="text-gray-600 mb-4">Plus de 5000 téléchargements en 24h pour la nouvelle application
+                            mobile de signalement routier.</p>
+                        <a href="#"
+                            class="text-primary font-medium hover:text-blue-700 transition-colors flex items-center">
+                            Lire la suite
+                            <i class="ri-arrow-right-line ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <button
+                    class="bg-white text-primary border-2 border-primary px-8 py-3 !rounded-button font-semibold hover:bg-primary hover:text-white transition-colors whitespace-nowrap">
+                    Voir toutes les actualités
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- App Download Section -->
+    <section class="py-20 bg-gradient-to-br from-primary to-blue-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-white mb-6">Restez connecté avec l'app CivActu</h2>
+                    <p class="text-xl text-blue-100 mb-8 leading-relaxed">
+                        Téléchargez notre application mobile pour signaler plus facilement et recevoir des notifications
+                        en temps réel.
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                                <i class="ri-smartphone-line text-white text-sm"></i>
+                            </div>
+                            <span class="text-blue-100">Interface optimisée pour mobile</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                                <i class="ri-notification-line text-white text-sm"></i>
+                            </div>
+                            <span class="text-blue-100">Notifications push en temps réel</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                                <i class="ri-map-pin-line text-white text-sm"></i>
+                            </div>
+                            <span class="text-blue-100">Géolocalisation automatique</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                                <i class="ri-cloud-line text-white text-sm"></i>
+                            </div>
+                            <span class="text-blue-100">Synchronisation cloud</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                        <button
+                            class="bg-black text-white px-6 py-3 !rounded-button font-semibold hover:bg-gray-800 transition-colors whitespace-nowrap flex items-center justify-center">
+                            <div class="w-6 h-6 flex items-center justify-center mr-3">
+                                <i class="ri-apple-line text-lg"></i>
+                            </div>
+                            Télécharger sur l'App Store
                         </button>
                         <button
-                            class="border-2 border-primary text-primary px-8 py-4 !rounded-button text-lg font-semibold hover:bg-primary hover:text-white transition-colors whitespace-nowrap">
-                            En savoir plus
+                            class="bg-black text-white px-6 py-3 !rounded-button font-semibold hover:bg-gray-800 transition-colors whitespace-nowrap flex items-center justify-center">
+                            <div class="w-6 h-6 flex items-center justify-center mr-3">
+                                <i class="ri-google-play-line text-lg"></i>
+                            </div>
+                            Disponible sur Google Play
+                        </button>
+                    </div>
+                    <div class="border-t border-blue-400 pt-6">
+                        <p class="text-blue-100 mb-4">Pas encore de compte ?</p>
+                        <button
+                            class="bg-white text-primary px-6 py-3 !rounded-button font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
+                            Créer un compte gratuitement
                         </button>
                     </div>
                 </div>
+                <div class="relative">
+                    <img src="image/appli.jpg" alt="Application CivActu"
+                        class="mx-auto max-w-sm rounded-3xl shadow-2xl">
+                </div>
             </div>
-        </section>
-        <section id="guide" class="py-20 bg-gray-50">
+        </div>
+    </section>
+    <!-- Partners Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Nos Partenaires</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Ils nous font confiance et nous accompagnent dans notre mission pour des routes plus sûres
+                </p>
+            </div>
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Guide des bonnes pratiques</h2>
-                        <div class="space-y-6">
-                            <div class="flex items-start space-x-4">
-                                <div
-                                    class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                    <div class="w-4 h-4 flex items-center justify-center text-primary">
-                                        <i class="ri-check-line"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h3 class="font-semibold text-gray-900 mb-2">Sécurité avant tout</h3>
-                                    <p class="text-gray-600">Ne mettez jamais votre sécurité en danger pour prendre une
-                                        photo. Restez vigilant et respectez le code de la route.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start space-x-4">
-                                <div
-                                    class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                    <div class="w-4 h-4 flex items-center justify-center text-primary">
-                                        <i class="ri-check-line"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h3 class="font-semibold text-gray-900 mb-2">Preuves claires</h3>
-                                    <p class="text-gray-600">Assurez-vous que les photos/vidéos sont nettes et montrent
-                                        clairement l'infraction commise.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start space-x-4">
-                                <div
-                                    class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                    <div class="w-4 h-4 flex items-center justify-center text-primary">
-                                        <i class="ri-check-line"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h3 class="font-semibold text-gray-900 mb-2">Respect de la vie privée</h3>
-                                    <p class="text-gray-600">Les données personnelles sont protégées et ne seront jamais
-                                        partagées publiquement.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <img src="image/blog-sidebar-image01.jpg"
-                            alt="Guide sécurité routière" class="rounded-2xl shadow-lg object-cover w-full h-80">
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="py-20 bg-gray-50">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Dernières actualités</h2>
-                    <p class="text-lg text-gray-600">Restez informé des dernières nouvelles concernant la sécurité
-                        routière</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-                    <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
-                        <img src="image/blog-sidebar-image01.jpg"
-                            alt="Actualité sécurité routière" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <span class="text-sm text-primary font-medium">25 juillet 2025</span>
-                            <h3 class="text-xl font-semibold text-gray-900 mt-2 mb-3">Nouvelle campagne de
-                                sensibilisation</h3>
-                            <p class="text-gray-600 mb-4">Lancement d'une campagne nationale pour sensibiliser les
-                                conducteurs aux dangers de l'excès de vitesse.</p>
-                            <a class=" text-primary font-medium hover:underline">Lire la suite</a>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
-                        <img src="image/blog-sidebar-image01.jpg" alt="Actualité sécurité routière" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <span class="text-sm text-primary font-medium">23 juillet 2025</span>
-                            <h3 class="text-xl font-semibold text-gray-900 mt-2 mb-3">Installation de nouveaux radars
-                            </h3>
-                            <p class="text-gray-600 mb-4">Déploiement de radars intelligents dans les zones
-                                accidentogènes de Cotonou pour renforcer la sécurité.</p>
-                            <a class=" text-primary font-medium hover:underline">Lire la suite</a>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
-                        <img src="image/blog-sidebar-image01.jpg" alt="Actualité sécurité routière" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <span class="text-sm text-primary font-medium">20 juillet 2025</span>
-                            <h3 class="text-xl font-semibold text-gray-900 mt-2 mb-3">Éducation routière dans les écoles
-                            </h3>
-                            <p class="text-gray-600 mb-4">Programme pilote d'éducation à la sécurité routière lancé dans
-                                les écoles primaires du Bénin.</p>
-                            <a class=" text-primary font-medium hover:underline">Lire la suite</a>
-                        </div>
-                    </div>
-                </div>
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">Comment ça fonctionne ?</h2>
-                <p class="text-lg text-gray-600">Un processus simple et sécurisé en 3 étapes</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <div class="w-10 h-10 flex items-center justify-center text-primary">
-                            <i class="ri-camera-line text-2xl"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">1. Collecte citoyenne</h3>
-                    <p class="text-gray-600">Prenez une photo ou vidéo de l'infraction et remplissez le formulaire de
-                        signalement avec les détails</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <div class="w-10 h-10 flex items-center justify-center text-secondary">
-                            <i class="ri-search-line text-2xl"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">2. Vérification</h3>
-                    <p class="text-gray-600">Notre équipe vérifie la validité du signalement avant de le transmettre aux
-                        autorités compétentes</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <div class="w-10 h-10 flex items-center justify-center text-orange-600">
-                            <i class="ri-shield-check-line text-2xl"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">3. Suivi</h3>
-                    <p class="text-gray-600">Suivez l'évolution de votre signalement et contribuez à l'amélioration de
-                        la sécurité routière</p>
-                </div>
-            </div>
-
-        </section>
-        <section class="py-20 bg-primary">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-3xl font-bold text-white mb-6">Rejoignez le mouvement</h2>
-                <p class="text-xl text-blue-100 mb-8">Plus de 5 000 citoyens béninois nous font déjà confiance pour
-                    améliorer la sécurité routière</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button
-                        class="bg-white text-primary px-8 py-4 !rounded-button text-lg font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
-                        Créer un compte
-                    </button>
-                    <button
-                        class="border-2 border-white text-white px-8 py-4 !rounded-button text-lg font-semibold hover:bg-white hover:text-primary transition-colors whitespace-nowrap">
-                        Télécharger l'app
-                    </button>
-                </div>
-            </div>
-        </section>
-        <section class="py-16 bg-white">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Nos partenaires</h2>
-                    <p class="text-gray-600">En collaboration avec les institutions officielles</p>
-                </div>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
                     <div class="flex flex-col items-center space-y-2 text-center">
                         <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center">
@@ -232,6 +419,7 @@
                         </div>
                         <span class="text-sm text-gray-600 font-medium">Ministère de l'Intérieur</span>
                     </div>
+
                     <div class="flex flex-col items-center space-y-2 text-center">
                         <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center">
                             <div class="w-8 h-8 flex items-center justify-center text-gray-600">
@@ -240,6 +428,7 @@
                         </div>
                         <span class="text-sm text-gray-600 font-medium">Police Républicaine</span>
                     </div>
+
                     <div class="flex flex-col items-center space-y-2 text-center">
                         <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center">
                             <div class="w-8 h-8 flex items-center justify-center text-gray-600">
@@ -248,6 +437,7 @@
                         </div>
                         <span class="text-sm text-gray-600 font-medium">Sécurité Routière</span>
                     </div>
+
                     <div class="flex flex-col items-center space-y-2 text-center">
                         <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center">
                             <div class="w-8 h-8 flex items-center justify-center text-gray-600">
@@ -258,24 +448,65 @@
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="bg-gray-900 text-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm">
-                    © 2025 SécuRoute Bénin. Tous droits réservés.
-                </p>
-                <div class="flex items-center space-x-4 mt-4 md:mt-0">
-                    <div class="w-6 h-6 flex items-center justify-center text-gray-400">
-                        <i class="ri-shield-check-line"></i>
+        <div class="border-t border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-gray-400 text-sm mb-4 md:mb-0">
+                        © 2025 CivActu. Tous droits réservés.
                     </div>
-                    <span class="text-gray-400 text-sm">Données sécurisées</span>
                 </div>
             </div>
         </div>
     </footer>
-
+    <script id="mobile-menu">
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function () {
+                    mobileMenu.classList.toggle('hidden');
+                    const menuIcon = mobileMenuButton.querySelector('i');
+                    if (mobileMenu.classList.contains('hidden')) {
+                        menuIcon.classList.remove('ri-close-line');
+                        menuIcon.classList.add('ri-menu-line');
+                    } else {
+                        menuIcon.classList.remove('ri-menu-line');
+                        menuIcon.classList.add('ri-close-line');
+                    }
+                });
+            }
+            document.addEventListener('click', function (event) {
+                if (!mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target) && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    const menuIcon = mobileMenuButton.querySelector('i');
+                    menuIcon.classList.remove('ri-close-line');
+                    menuIcon.classList.add('ri-menu-line');
+                }
+            });
+        });
+    </script>
+    <script id="smooth-scroll">
+        document.addEventListener('DOMContentLoaded', function () {
+            const links = document.querySelectorAll('a[href^="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
