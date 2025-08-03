@@ -50,6 +50,112 @@
             overflow: hidden;
         }
     </style>
+    
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        .rounded-button {
+            border-radius: 8px !important;
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+
+            /* Navigation */
+            nav div.max-w-7xl {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            nav .flex.justify-between.items-center.h-16 {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            nav .hidden.md:block {
+                display: block !important;
+                flex-basis: 100%;
+            }
+
+            nav .hidden.md:flex.items-center.space-x-4 {
+                flex-basis: auto;
+            }
+
+            /* Hero Section */
+            section.relative.min-h-screen {
+                min-height: 70vh;
+                /* plus petite hauteur sur tablette */
+                padding: 2rem 1rem;
+            }
+
+            section.relative.min-h-screen>div.relative {
+                max-width: 90vw;
+            }
+
+            section.relative.min-h-screen h1 {
+                font-size: 3rem;
+                /* réduire taille du titre */
+            }
+
+            section.relative.min-h-screen p {
+                font-size: 1.1rem;
+            }
+
+            section.relative.min-h-screen .flex.flex-col.sm\\:flex-row {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            /* About Section */
+            section.py-20.bg-gray-50 .grid.lg\\:grid-cols-2 {
+                grid-template-columns: 1fr;
+                /* colonne unique */
+                gap: 2rem;
+            }
+
+            section.py-20.bg-gray-50 img.rounded-xl {
+                height: auto;
+                max-width: 100%;
+            }
+
+            /* How it works Section */
+            section.py-20.bg-gray-50 .grid.md\\:grid-cols-3 {
+                grid-template-columns: 1fr;
+                /* stack vertical */
+                gap: 2rem;
+            }
+
+            /* Testimonials Section */
+            section.py-20.bg-white .grid.md\\:grid-cols-3 {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            /* Contact Section */
+            section#contact .max-w-7xl {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            form.max-w-3xl.mx-auto.space-y-6 {
+                width: 100%;
+            }
+
+            /* Footer */
+            footer.bg-gray-900 .max-w-7xl {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            footer.bg-gray-900 .flex.flex-col.md\\:flex-row {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+
+        
+    </style>
 </head>
 
 <body class="bg-gray-50">
