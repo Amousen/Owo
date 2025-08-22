@@ -8,14 +8,8 @@
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"/>
     <script>
       tailwind.config = {
         theme: {
@@ -44,7 +38,7 @@
       :where([class^="ri-"])::before {
       content: "\f3c2";
       }
-      .!rounded-button {
+      .rounded-button {
       border-radius: 8px !important;
       }
       .map-container {
@@ -60,31 +54,16 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
           <div class="flex items-center">
-            <a
-              href="https://readdy.ai/home/80cd573c-7bbb-420c-bed5-422c5486ae45/2023ae7f-1f79-41f9-aedf-d558b92502b3"
-              data-readdy="true"
-              class="flex items-center mr-6 text-gray-600 hover:text-primary transition-colors"
-            >
+            <a href="index.html" class="items-center mr-6 text-gray-600 hover:text-primary transition-colors">
               <div class="w-6 h-6 flex items-center justify-center mr-2">
                 <i class="ri-arrow-left-line text-lg"></i>
               </div>
-              Retour
             </a>
-            <div class="font-['Pacifico'] text-2xl text-primary font-bold">
-              CivActu
-            </div>
           </div>
-          <div class="flex items-center">
+          <div class="">
             <h1 class="text-xl font-semibold text-gray-900">
               Signaler une infraction
             </h1>
-          </div>
-          <div class="flex items-center space-x-4">
-            <button
-              class="bg-primary text-white px-6 py-2 !rounded-button text-sm font-medium hover:bg-blue-700 transition-colors whitespace-nowrap"
-            >
-              Se connecter
-            </button>
           </div>
         </div>
       </div>
@@ -479,6 +458,20 @@ Véhicule immatriculé AB-123-CD a grillé le feu rouge à l'intersection de l'A
         </div>
       </div>
     </main>
+
+        <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="border-t border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-gray-400 text-sm mb-4 md:mb-0">
+                        © 2025 CivActu. Tous droits réservés.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script id="form-interactions">
       document.addEventListener("DOMContentLoaded", function () {
         const mediaDropzone = document.getElementById("media-dropzone");

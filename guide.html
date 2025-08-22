@@ -2,109 +2,243 @@
 <html lang="fr">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SécuRoute Bénin - Guide d'utilisation</title>
-    <link rel="stylesheet" href="style.css">
+    <title>CivActu - Citoyens pour la Sécurité Routière</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        .rounded-button {
+            border-radius: 8px !important;
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+
+            /* Navigation */
+            nav div.max-w-7xl {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            nav .flex.justify-between.items-center.h-16 {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            nav .hidden.md:block {
+                display: block !important;
+                flex-basis: 100%;
+            }
+
+            nav .hidden.md:flex.items-center.space-x-4 {
+                flex-basis: auto;
+            }
+
+            /* Hero Section */
+            section.relative.min-h-screen {
+                min-height: 70vh;
+                /* plus petite hauteur sur tablette */
+                padding: 2rem 1rem;
+            }
+
+            section.relative.min-h-screen>div.relative {
+                max-width: 90vw;
+            }
+
+            section.relative.min-h-screen h1 {
+                font-size: 3rem;
+                /* réduire taille du titre */
+            }
+
+            section.relative.min-h-screen p {
+                font-size: 1.1rem;
+            }
+
+            section.relative.min-h-screen .flex.flex-col.sm\\:flex-row {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            /* About Section */
+            section.py-20.bg-gray-50 .grid.lg\\:grid-cols-2 {
+                grid-template-columns: 1fr;
+                /* colonne unique */
+                gap: 2rem;
+            }
+
+            section.py-20.bg-gray-50 img.rounded-xl {
+                height: auto;
+                max-width: 100%;
+            }
+
+            /* How it works Section */
+            section.py-20.bg-gray-50 .grid.md\\:grid-cols-3 {
+                grid-template-columns: 1fr;
+                /* stack vertical */
+                gap: 2rem;
+            }
+
+            /* Testimonials Section */
+            section.py-20.bg-white .grid.md\\:grid-cols-3 {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            /* Contact Section */
+            section#contact .max-w-7xl {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            form.max-w-3xl.mx-auto.space-y-6 {
+                width: 100%;
+            }
+
+            /* Footer */
+            footer.bg-gray-900 .max-w-7xl {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            footer.bg-gray-900 .flex.flex-col.md\\:flex-row {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+
+        
+    </style>
 </head>
 
-<body class="bg-white" cz-shortcut-listen="true"><audio class="audio-for-speech" src=""></audio>
-    <header class="w-full bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <div class="flex items-center space-x-8">
-                    <div class="font-[&#39;Pacifico&#39;] text-2xl text-primary font-bold">
-                        SécuRoute
-                    </div>
-                    <nav class="hidden md:flex space-x-8">
-                        <a class="text-gray-700 hover:text-primary transition-colors">Accueil</a>
-                        <a class="text-gray-700 hover:text-primary transition-colors">Signaler</a>
-                        <a class="text-gray-700 hover:text-primary transition-colors">Mes Signalements</a>
-                        <a class="text-gray-700 hover:text-primary transition-colors">Guide</a>
-                    </nav>
+                <div class="flex items-center">
+                    <div class=" text-2xl text-primary font-bold">CivActu</div>
+                    <!-- <span class="hidden sm:block ml-2 text-gray-600 text-sm">Citoyens pour la Sécurité Routière</span> -->
                 </div>
-                <div class="flex items-center space-x-4">
-                    <button class="text-gray-700 hover:text-primary transition-colors">
-                        <div class="w-6 h-6 flex items-center justify-center">
-                            <i class="ri-global-line"></i>
-                        </div>
-                    </button>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html"
+                            class="text-gray-900 hover:text-primary px-3 py-2 text-sm font-medium">Accueil
+                        </a>
+                        <a href="signler.html" data-readdy="true"
+                            class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium">Signaler
+                        </a>
+                        <a href="signalement.html" class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium">Mes
+                            Signalements
+                        </a>
+                        <a href="guide.html" class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium">Guide</a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
                     <button
-                        class="bg-primary text-white px-6 py-2 !rounded-button hover:bg-blue-700 transition-colors whitespace-nowrap">
+                        class="bg-primary text-white px-6 py-2 !rounded-button text-sm font-medium hover:bg-blue-700 transition-colors whitespace-nowrap">
                         Se connecter
                     </button>
                 </div>
+                <div class="flex md:hidden">
+                    <button type="button"
+                        class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-primary hover:bg-gray-100">
+                        <i class="ri-menu-line text-2xl"></i>
+                    </button>
+                </div>
             </div>
-        </div>
-    </header>
-    <main>
-        <section id="guide" class="py-20 bg-gray-50">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Guide des bonnes pratiques</h2>
-                        <div class="space-y-6">
-                            <div class="flex items-start space-x-4">
-                                <div
-                                    class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                    <div class="w-4 h-4 flex items-center justify-center text-primary">
-                                        <i class="ri-check-line"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h3 class="font-semibold text-gray-900 mb-2">Sécurité avant tout</h3>
-                                    <p class="text-gray-600">Ne mettez jamais votre sécurité en danger pour prendre une
-                                        photo. Restez vigilant et respectez le code de la route.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start space-x-4">
-                                <div
-                                    class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                    <div class="w-4 h-4 flex items-center justify-center text-primary">
-                                        <i class="ri-check-line"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h3 class="font-semibold text-gray-900 mb-2">Preuves claires</h3>
-                                    <p class="text-gray-600">Assurez-vous que les photos/vidéos sont nettes et montrent
-                                        clairement l'infraction commise.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start space-x-4">
-                                <div
-                                    class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                    <div class="w-4 h-4 flex items-center justify-center text-primary">
-                                        <i class="ri-check-line"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h3 class="font-semibold text-gray-900 mb-2">Respect de la vie privée</h3>
-                                    <p class="text-gray-600">Les données personnelles sont protégées et ne seront jamais
-                                        partagées publiquement.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <img src="./SécuRoute Bénin - Signalement d&#39;infractions routières_files/search-image(3)"
-                            alt="Guide sécurité routière" class="rounded-2xl shadow-lg object-cover w-full h-80">
+            <div class="mobile-menu hidden md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="index.html"
+                        class="block text-gray-900 hover:text-primary px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-primary">Accueil</a>
+                    <a href="signale.html"
+                        data-readdy="true"
+                        class="block text-gray-600 hover:text-primary px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-primary">Signaler</a>
+                    <a href="signalement.html"
+                        class="block text-gray-600 hover:text-primary px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-primary">Mes
+                        Signalements</a>
+                    <a href="guide.html"
+                        class="block text-gray-600 hover:text-primary px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-primary">Guide</a>
+                    <div class="mt-4 px-3">
+                        <button
+                            class="w-full bg-primary text-white px-6 py-2 !rounded-button text-sm font-medium hover:bg-blue-700 transition-colors whitespace-nowrap">
+                            Se connecter
+                        </button>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
-    <footer class="bg-gray-900 text-white py-6">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm">
-                    © 2025 SécuRoute Bénin. Tous droits réservés.
-                </p>
-                <div class="flex items-center space-x-4 mt-4 md:mt-0">
-                    <div class="w-6 h-6 flex items-center justify-center text-gray-400">
-                        <i class="ri-shield-check-line"></i>
+        </div>
+    </nav>
+
+    <!-- App Download Section -->
+    <section class="py-20 bg-gradient-to-br from-primary to-blue-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-white mb-6">Qui sommes-nous ?</h2>
+                    <p class="text-xl text-blue-100 mb-8 leading-relaxed">
+                        CivActu est une plateforme citoyenne innovante qui permet aux Béninois de signaler les 
+                        infractions routières, de participer à la promotion de la sécurité publique et de renforcer
+                         la transparence entre citoyens et autorités. 
+                         Notre objectif est clair : faire de la participation citoyenne un levier pour améliorer la 
+                         sécurité et sauver des vies sur nos routes
+                    </p>
+                    <h2 class="text-4xl font-bold text-white mb-6">Notre mission</h2>
+                    <p class="text-xl text-blue-100 mb-8 leading-relaxed">
+                        <ul>
+                            <li>Encourager la participation citoyenne à travers le signalement anonyme et sécurisé.</li>
+                            <li>Faciliter la collaboration entre citoyens et autorités.</li>
+                            <li>Valoriser l’usage du numérique pour le bien commun..</li>
+                            <li>Protéger la vie privée et les données personnelles des utilisateurs.</li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="relative">
+                    <img src="image/actu4.jpg" alt="Application CivActu"
+                        class="mx-auto  rounded-3xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="border-t border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-gray-400 text-sm mb-4 md:mb-0">
+                        © 2025 CivActu. Tous droits réservés.
                     </div>
-                    <span class="text-gray-400 text-sm">Données sécurisées</span>
                 </div>
             </div>
         </div>
