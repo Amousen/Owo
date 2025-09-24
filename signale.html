@@ -496,15 +496,20 @@
       }
       setCurrentDateTime();
 
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(initMap, (error) => {
-          console.error("Erreur de géolocalisation:", error);
-          initMap({ coords: { latitude: 6.3702928, longitude: 2.3912362 } }); // Default to Cotonou
-        });
-      } else {
-        console.error("Géolocalisation non supportée");
-        initMap({ coords: { latitude: 6.3702928, longitude: 2.3912362 } }); // Default to Cotonou
+      if ("geolocation" in navigator) {
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        latInput.value = pos.coords.latitude;
+        lonInput.value = pos.coords.longitude;
+        console.log("Localisation récupérée :", latInput.value, lonInput.value);
+      },
+      (err) => {
+        console.warn("Erreur localisation :", err.message);
       }
+    );
+  } else {
+    console.warn("La géolocalisation n'est pas supportée par ce navigateur.");
+  }
     });
   </script>
 
