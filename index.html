@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CivActu - Citoyens pour la Sécurité Routière</title>
-    <script src="https://cdn.tailwindcss.com/3.4.16"></script> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -35,114 +35,11 @@
         }
     </script>
     <style>
-        :where([class^="ri-"])::before {
-            content: "\f3c2";
-        }
-
-        .rounded-button {
-            border-radius: 8px !important;
-        }
-
-        @media (min-width: 768px) and (max-width: 1024px) {
-
-            /* Navigation */
-            nav div.max-w-7xl {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-
-            nav .flex.justify-between.items-center.h-16 {
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
-
-            nav .hidden.md:block {
-                display: block !important;
-                flex-basis: 100%;
-            }
-
-            nav .hidden.md:flex.items-center.space-x-4 {
-                flex-basis: auto;
-            }
-
-            /* Hero Section */
-            section.relative.min-h-screen {
-                min-height: 70vh;
-                /* plus petite hauteur sur tablette */
-                padding: 2rem 1rem;
-            }
-
-            section.relative.min-h-screen>div.relative {
-                max-width: 90vw;
-            }
-
-            section.relative.min-h-screen h1 {
-                font-size: 3rem;
-                /* réduire taille du titre */
-            }
-
-            section.relative.min-h-screen p {
-                font-size: 1.1rem;
-            }
-
-            section.relative.min-h-screen .flex.flex-col.sm\\:flex-row {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            /* About Section */
-            section.py-20.bg-gray-50 .grid.lg\\:grid-cols-2 {
-                grid-template-columns: 1fr;
-                /* colonne unique */
-                gap: 2rem;
-            }
-
-            section.py-20.bg-gray-50 img.rounded-xl {
-                height: auto;
-                max-width: 100%;
-            }
-
-            /* How it works Section */
-            section.py-20.bg-gray-50 .grid.md\\:grid-cols-3 {
-                grid-template-columns: 1fr;
-                /* stack vertical */
-                gap: 2rem;
-            }
-
-            /* Testimonials Section */
-            section.py-20.bg-white .grid.md\\:grid-cols-3 {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            /* Contact Section */
-            section#contact .max-w-7xl {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-
-            form.max-w-3xl.mx-auto.space-y-6 {
-                width: 100%;
-            }
-
-            /* Footer */
-            footer.bg-gray-900 .max-w-7xl {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-
-            footer.bg-gray-900 .flex.flex-col.md\\:flex-row {
-                flex-direction: column;
-                gap: 2rem;
-            }
-        }
-        .bgp2{
+        .bgp2 {
             background-color: red;
         }
-
-        
     </style>
-    
+
 </head>
 
 <body class="bg-white">
@@ -162,11 +59,14 @@
                         <a href="signler.html" data-readdy="true"
                             class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium">Signaler
                         </a>
-                        <a href="about.html" class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium">A propos
+                        <a href="about.html" class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium">A
+                            propos
                         </a>
-                        <a href="contact.html" class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium">Contact
+                        <a href="contact.html"
+                            class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium">Contact
                         </a>
-                        <a href="guide.html" class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium">Guide</a>
+                        <a href="guide.html"
+                            class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium">Guide</a>
                     </div>
                 </div>
                 <div class="hidden md:flex items-center space-x-4">
@@ -184,23 +84,26 @@
             </div>
             <div class="mobile-menu hidden md:hidden">
                 <div class="px-2 pt-2 pb-3 space-y-1">
-                    <a href="index.html"
-                        class="block text-gray-900 hover:text-primary px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-primary">Accueil</a>
-                    <a href="signale.html"
-                        data-readdy="true"
-                        class="block text-gray-600 hover:text-primary px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-primary">Signaler</a>
-                    <a href="about.html"
-                    class="block text-gray-600 hover:text-primary px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-primary">
-                    A propos</a>
-                        <a href="contact.html" class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium">Contact
-                        </a>
+                    <a href="index.html" class="block text-gray-900 hover:text-primary px-3 py-2 
+                        text-base font-medium border-l-4 border-transparent hover:border-primary">Accueil</a>
+                    <a href="signale.html" data-readdy="true" class="block text-gray-600 hover:text-primary px-3 py-2 
+                        text-base font-medium border-l-4 border-transparent hover:border-primary">Signaler</a>
+                    <a href="about.html" class="block text-gray-600 hover:text-primary px-3 py-2 
+                    text-base font-medium border-l-4 border-transparent hover:border-primary">A propos</a>
+
+                    <a href="contact.html" class="block text-gray-600 hover:text-primary px-3 py-2 
+                    text-base font-medium border-l-4 border-transparent hover:border-primary">Contact</a>
+                    
                     <a href="guide.html"
                         class="block text-gray-600 hover:text-primary px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-primary">Guide</a>
                     <div class="mt-4 px-3">
-                        <button
-                            class="w-full bg-primary text-white px-6 py-2 !rounded-button text-sm font-medium hover:bg-blue-700 transition-colors whitespace-nowrap">
-                            Se connecter
-                        </button>
+                        <a href="connexion.html">
+                            <button
+                                class="w-full bg-primary text-white px-6 py-2 !rounded-button 
+                                text-sm font-medium hover:bg-blue-700 transition-colors whitespace-nowrap">
+                                Se connecter
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -485,13 +388,6 @@
                         <button
                             class="bg-black text-white px-6 py-3 !rounded-button font-semibold hover:bg-gray-800 transition-colors whitespace-nowrap flex items-center justify-center">
                             <div class="w-6 h-6 flex items-center justify-center mr-3">
-                                <i class="ri-apple-line text-lg"></i>
-                            </div>
-                            Télécharger sur l'App Store
-                        </button>
-                        <button
-                            class="bg-black text-white px-6 py-3 !rounded-button font-semibold hover:bg-gray-800 transition-colors whitespace-nowrap flex items-center justify-center">
-                            <div class="w-6 h-6 flex items-center justify-center mr-3">
                                 <i class="ri-google-play-line text-lg"></i>
                             </div>
                             Disponible sur Google Play
@@ -506,8 +402,7 @@
                     </div>
                 </div>
                 <div class="relative">
-                    <img src="image/appli.jpg" alt="Application CivActu"
-                        class="mx-auto  rounded-3xl shadow-2xl">
+                    <img src="image/appli.jpg" alt="Application CivActu" class="mx-auto  rounded-3xl shadow-2xl">
                 </div>
             </div>
         </div>

@@ -1,552 +1,484 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Signaler une infraction - CivActu</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
-    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"/>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: "#3B82F6",
-              secondary: "#10B981",
-            },
-            borderRadius: {
-              none: "0px",
-              sm: "4px",
-              DEFAULT: "8px",
-              md: "12px",
-              lg: "16px",
-              xl: "20px",
-              "2xl": "24px",
-              "3xl": "32px",
-              full: "9999px",
-              button: "8px",
-            },
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signaler une infraction - CivActu</title>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#3B82F6",
+            secondary: "#10B981",
+          },
+          borderRadius: {
+            none: "0px",
+            sm: "4px",
+            DEFAULT: "8px",
+            md: "12px",
+            lg: "16px",
+            xl: "20px",
+            "2xl": "24px",
+            "3xl": "32px",
+            full: "9999px",
+            button: "8px",
           },
         },
-      };
-    </script>
-    <style>
-      :where([class^="ri-"])::before {
+      },
+    };
+  </script>
+  <style>
+    :where([class^="ri-"])::before {
       content: "\f3c2";
-      }
-      .rounded-button {
+    }
+
+    .rounded-button {
       border-radius: 8px !important;
-      }
-      .map-container {
+    }
+
+    .map-container {
       background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png');
       background-size: cover;
       background-position: center;
       overflow: hidden;
-      }
-    </style>
-  </head>
-  <body class="bg-gray-50">
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16">
-          <div class="flex items-center">
-            <a href="index.html" class="items-center mr-6 text-gray-600 hover:text-primary transition-colors">
-              <div class="w-6 h-6 flex items-center justify-center mr-2">
-                <i class="ri-arrow-left-line text-lg"></i>
-              </div>
-            </a>
-          </div>
-          <div class="">
-            <h1 class="text-xl font-semibold text-gray-900">
-              Signaler une infraction
-            </h1>
-          </div>
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50">
+  <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <a href="index.html" class="items-center mr-6 text-gray-600 hover:text-primary transition-colors">
+            <div class="w-6 h-6 flex items-center justify-center mr-2">
+              <i class="ri-arrow-left-line text-lg"></i>
+            </div>
+          </a>
+        </div>
+        <div class="">
+          <h1 class="text-xl font-semibold text-gray-900">
+            Signaler une infraction
+          </h1>
         </div>
       </div>
-    </nav>
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div class="bg-white rounded-xl shadow-sm p-8">
-        <div class="mb-8">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">
-            Nouveau signalement d'infraction
-          </h2>
-          <p class="text-gray-600">
-            Remplissez ce formulaire pour signaler une infraction routière. Vos
-            informations nous aideront à traiter votre signalement efficacement.
-          </p>
+    </div>
+  </nav>
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="bg-white rounded-xl shadow-sm p-8">
+      <div class="mb-8">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">
+          Nouveau signalement d'infraction
+        </h2>
+        <p class="text-gray-600">
+          Remplissez ce formulaire pour signaler une infraction routière. Vos
+          informations nous aideront à traiter votre signalement efficacement.
+        </p>
+      </div>
+      <form class="space-y-8">
+        <div class="bg-gray-50 rounded-lg p-6">
+          <h3 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+            <div class="w-6 h-6 flex items-center justify-center mr-3">
+              <i class="ri-camera-line text-lg text-primary"></i>
+            </div>
+            Photos et vidéos
+          </h3>
+          <div class="space-y-4">
+            <div
+              class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-primary transition-colors cursor-pointer"
+              id="media-dropzone">
+              <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="ri-camera-line text-2xl text-gray-400"></i>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Glissez-déposez vos fichiers ici ou cliquez pour sélectionner
+              </p>
+              <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                <button type="button"
+                  class="bg-primary text-white px-6 py-2 !rounded-button text-sm font-medium hover:bg-blue-700 transition-colors whitespace-nowrap flex items-center justify-center">
+                  <div class="w-4 h-4 flex items-center justify-center mr-2">
+                    <i class="ri-camera-line text-sm"></i>
+                  </div>
+                  Prendre une photo
+                </button>
+                <button type="button"
+                  class="bg-white text-gray-700 border border-gray-300 px-6 py-2 !rounded-button text-sm font-medium hover:bg-gray-50 transition-colors whitespace-nowrap flex items-center justify-center">
+                  <div class="w-4 h-4 flex items-center justify-center mr-2">
+                    <i class="ri-folder-line text-sm"></i>
+                  </div>
+                  Choisir depuis la galerie
+                </button>
+              </div>
+            </div>
+            <div id="media-preview" class="grid grid-cols-2 md:grid-cols-4 gap-4 hidden">
+              <div class="relative bg-gray-100 rounded-lg aspect-square">
+                <img
+                  src="https://readdy.ai/api/search-image?query=Traffic%20violation%20photo%20example%2C%20car%20running%20red%20light%20at%20intersection%2C%20clear%20license%20plate%20visible%2C%20urban%20street%20setting%2C%20daytime%20photography%2C%20evidence%20documentation%20style&width=200&height=200&seq=violation-example1&orientation=squarish"
+                  alt="Photo d'infraction" class="w-full h-full object-cover rounded-lg" />
+                <button type="button"
+                  class="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600 transition-colors">
+                  <i class="ri-close-line text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-        <form class="space-y-8">
-          <div class="bg-gray-50 rounded-lg p-6">
-            <h3
-              class="text-xl font-semibold text-gray-900 mb-4 flex items-center"
-            >
-              <div class="w-6 h-6 flex items-center justify-center mr-3">
-                <i class="ri-camera-line text-lg text-primary"></i>
-              </div>
-              Photos et vidéos
-            </h3>
-            <div class="space-y-4">
-              <div
-                class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-primary transition-colors cursor-pointer"
-                id="media-dropzone"
-              >
-                <div
-                  class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4"
-                >
-                  <i class="ri-camera-line text-2xl text-gray-400"></i>
-                </div>
-                <p class="text-gray-600 mb-4">
-                  Glissez-déposez vos fichiers ici ou cliquez pour sélectionner
-                </p>
-                <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                  <button
-                    type="button"
-                    class="bg-primary text-white px-6 py-2 !rounded-button text-sm font-medium hover:bg-blue-700 transition-colors whitespace-nowrap flex items-center justify-center"
-                  >
-                    <div class="w-4 h-4 flex items-center justify-center mr-2">
-                      <i class="ri-camera-line text-sm"></i>
-                    </div>
-                    Prendre une photo
-                  </button>
-                  <button
-                    type="button"
-                    class="bg-white text-gray-700 border border-gray-300 px-6 py-2 !rounded-button text-sm font-medium hover:bg-gray-50 transition-colors whitespace-nowrap flex items-center justify-center"
-                  >
-                    <div class="w-4 h-4 flex items-center justify-center mr-2">
-                      <i class="ri-folder-line text-sm"></i>
-                    </div>
-                    Choisir depuis la galerie
-                  </button>
-                </div>
-              </div>
-              <div
-                id="media-preview"
-                class="grid grid-cols-2 md:grid-cols-4 gap-4 hidden"
-              >
-                <div class="relative bg-gray-100 rounded-lg aspect-square">
-                  <img
-                    src="https://readdy.ai/api/search-image?query=Traffic%20violation%20photo%20example%2C%20car%20running%20red%20light%20at%20intersection%2C%20clear%20license%20plate%20visible%2C%20urban%20street%20setting%2C%20daytime%20photography%2C%20evidence%20documentation%20style&width=200&height=200&seq=violation-example1&orientation=squarish"
-                    alt="Photo d'infraction"
-                    class="w-full h-full object-cover rounded-lg"
-                  />
-                  <button
-                    type="button"
-                    class="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"
-                  >
-                    <i class="ri-close-line text-xs"></i>
-                  </button>
-                </div>
-              </div>
+        <div class="bg-gray-50 rounded-lg p-6">
+          <h3 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+            <div class="w-6 h-6 flex items-center justify-center mr-3">
+              <i class="ri-alert-line text-lg text-primary"></i>
+            </div>
+            Type d'infraction
+          </h3>
+          <div class="relative">
+            <select
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-900 focus:ring-2 focus:ring-primary focus:border-transparent pr-8"
+              id="violation-type">
+              <option value="">Sélectionnez le type d'infraction</option>
+              <option value="red-light">Grillage de feu rouge</option>
+              <option value="speeding">Excès de vitesse</option>
+              <option value="parking">Stationnement illégal</option>
+              <option value="phone">
+                Utilisation du téléphone au volant
+              </option>
+              <option value="seatbelt">Non-port de la ceinture</option>
+              <option value="lane">Changement de voie dangereux</option>
+              <option value="priority">Non-respect de priorité</option>
+              <option value="drunk">Conduite en état d'ivresse</option>
+              <option value="other">Autre infraction</option>
+            </select>
+            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+              <i class="ri-arrow-down-s-line text-gray-400"></i>
             </div>
           </div>
-          <div class="bg-gray-50 rounded-lg p-6">
-            <h3
-              class="text-xl font-semibold text-gray-900 mb-4 flex items-center"
-            >
-              <div class="w-6 h-6 flex items-center justify-center mr-3">
-                <i class="ri-alert-line text-lg text-primary"></i>
-              </div>
-              Type d'infraction
-            </h3>
-            <div class="relative">
-              <select
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white text-gray-900 focus:ring-2 focus:ring-primary focus:border-transparent pr-8"
-                id="violation-type"
-              >
-                <option value="">Sélectionnez le type d'infraction</option>
-                <option value="red-light">Grillage de feu rouge</option>
-                <option value="speeding">Excès de vitesse</option>
-                <option value="parking">Stationnement illégal</option>
-                <option value="phone">
-                  Utilisation du téléphone au volant
-                </option>
-                <option value="seatbelt">Non-port de la ceinture</option>
-                <option value="lane">Changement de voie dangereux</option>
-                <option value="priority">Non-respect de priorité</option>
-                <option value="drunk">Conduite en état d'ivresse</option>
-                <option value="other">Autre infraction</option>
-              </select>
-              <div
-                class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none"
-              >
-                <i class="ri-arrow-down-s-line text-gray-400"></i>
-              </div>
+        </div>
+        <div class="bg-gray-50 rounded-lg p-6">
+          <h3 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+            <div class="w-6 h-6 flex items-center justify-center mr-3">
+              <i class="ri-map-pin-line text-lg text-primary"></i>
             </div>
-          </div>
-          <div class="bg-gray-50 rounded-lg p-6">
-            <h3
-              class="text-xl font-semibold text-gray-900 mb-4 flex items-center"
-            >
-              <div class="w-6 h-6 flex items-center justify-center mr-3">
-                <i class="ri-map-pin-line text-lg text-primary"></i>
-              </div>
-              Localisation
-            </h3>
-            <div class="space-y-4">
-              <div id="map" class="h-64 rounded-lg relative"></div>
-              <div class="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-2"
-                    >Adresse</label
-                  >
-                  <input
-                    type="text"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
-                    placeholder="Entrez l'adresse de l'infraction"
-                    value="Avenue Steinmetz, Cotonou"
-                  />
-                </div>
-                <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-2"
-                    >Quartier</label
-                  >
-                  <input
-                    type="text"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
-                    placeholder="Quartier"
-                    value="Ganhi"
-                  />
-                </div>
-              </div>
-              <button
-                type="button"
-                class="bg-secondary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-green-700 transition-colors whitespace-nowrap flex items-center"
-              >
-                <div class="w-4 h-4 flex items-center justify-center mr-2">
-                  <i class="ri-gps-line text-sm"></i>
-                </div>
-                Utiliser ma position actuelle
-              </button>
-            </div>
-          </div>
-          <div class="bg-gray-50 rounded-lg p-6">
-            <h3
-              class="text-xl font-semibold text-gray-900 mb-4 flex items-center"
-            >
-              <div class="w-6 h-6 flex items-center justify-center mr-3">
-                <i class="ri-calendar-line text-lg text-primary"></i>
-              </div>
-              Date et heure
-            </h3>
+            Localisation
+          </h3>
+          <div class="space-y-4">
+            <div id="map" class="h-64 rounded-lg relative"></div>
             <div class="grid md:grid-cols-2 gap-4">
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2"
-                  >Date</label
-                >
-                <input
-                  type="date"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm bg-gray-100"
-                  readonly
-                />
+                <label class="block text-sm font-medium text-gray-700 mb-2">Adresse</label>
+                <input type="text"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                  placeholder="Entrez l'adresse de l'infraction" value="Avenue Steinmetz, Cotonou" />
               </div>
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2"
-                  >Heure</label
-                >
-                <input
-                  type="time"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm bg-gray-100"
-                  readonly
-                />
+                <label class="block text-sm font-medium text-gray-700 mb-2">Quartier</label>
+                <input type="text"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                  placeholder="Quartier" value="Ganhi" />
               </div>
             </div>
+            <button type="button"
+              class="bg-secondary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-green-700 transition-colors whitespace-nowrap flex items-center">
+              <div class="w-4 h-4 flex items-center justify-center mr-2">
+                <i class="ri-gps-line text-sm"></i>
+              </div>
+              Utiliser ma position actuelle
+            </button>
           </div>
-          <div class="bg-gray-50 rounded-lg p-6">
-            <h3
-              class="text-xl font-semibold text-gray-900 mb-4 flex items-center"
-            >
-              <div class="w-6 h-6 flex items-center justify-center mr-3">
-                <i class="ri-file-text-line text-lg text-primary"></i>
-              </div>
-              Description de l'incident
-            </h3>
-            <div class="space-y-4">
-              <textarea
-                rows="5"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm resize-none"
-                placeholder="Décrivez en détail l'infraction observée..."
-              >
-Véhicule immatriculé AB-123-CD a grillé le feu rouge à l'intersection de l'Avenue Steinmetz et de la Rue des Palmiers. Le conducteur roulait à vive allure et n'a pas marqué d'arrêt malgré le feu rouge bien visible.</textarea
-              >
-              <div
-                class="flex justify-between items-center text-sm text-gray-500"
-              >
-                <div>
-                  <span class="font-medium">Conseils :</span> Mentionnez la
-                  plaque d'immatriculation, la couleur du véhicule, les
-                  circonstances exactes
-                </div>
-                <div><span id="char-count">247</span>/500 caractères</div>
-              </div>
+        </div>
+        <div class="bg-gray-50 rounded-lg p-6">
+          <h3 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+            <div class="w-6 h-6 flex items-center justify-center mr-3">
+              <i class="ri-calendar-line text-lg text-primary"></i>
+            </div>
+            Date et heure
+          </h3>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Date</label>
+              <input type="date"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm bg-gray-100"
+                readonly />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Heure</label>
+              <input type="time"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm bg-gray-100"
+                readonly />
             </div>
           </div>
-          <div class="bg-gray-50 rounded-lg p-6">
-            <h3
-              class="text-xl font-semibold text-gray-900 mb-4 flex items-center"
-            >
-              <div class="w-6 h-6 flex items-center justify-center mr-3">
-                <i class="ri-user-line text-lg text-primary"></i>
+        </div>
+        <div class="bg-gray-50 rounded-lg p-6">
+          <h3 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+            <div class="w-6 h-6 flex items-center justify-center mr-3">
+              <i class="ri-file-text-line text-lg text-primary"></i>
+            </div>
+            Description de l'incident
+          </h3>
+          <div class="space-y-4">
+            <textarea rows="5"
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm resize-none"
+              placeholder="Décrivez en détail l'infraction observée...">
+ EX: Véhicule immatriculé AB-123-CD a grillé le feu rouge à l'intersection de l'Avenue Steinmetz et de la Rue des Palmiers. Le conducteur roulait à vive allure et n'a pas marqué d'arrêt malgré le feu rouge bien visible.</textarea>
+            <div class="flex justify-between items-center text-sm text-gray-500">
+              <div>
+                <span class="font-medium">Conseils :</span> Mentionnez la
+                plaque d'immatriculation, la couleur du véhicule, les
+                circonstances exactes
               </div>
-              Informations du témoin
-            </h3>
-            <div class="space-y-4">
-              <div class="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-2"
-                    >Prénom</label
-                  >
-                  <input
-                    type="text"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
-                    placeholder="Votre prénom"
-                    value="Koffi"
-                  />
-                </div>
-                <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-2"
-                    >Nom</label
-                  >
-                  <input
-                    type="text"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
-                    placeholder="Votre nom"
-                    value="Mensah"
-                  />
-                </div>
-              </div>
-              <div class="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-2"
-                    >Téléphone</label
-                  >
-                  <input
-                    type="tel"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
-                    placeholder="+229 XX XX XX XX"
-                    value="+229 97 45 32 18"
-                  />
-                </div>
-                <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-2"
-                    >Email</label
-                  >
-                  <input
-                    type="email"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
-                    placeholder="votre@email.com"
-                    value="koffi.mensah@email.com"
-                  />
-                </div>
-              </div>
-              <div class="flex items-center">
-                <input type="checkbox" id="anonymous" class="hidden" />
-                <label for="anonymous" class="flex items-center cursor-pointer">
-                  <div
-                    class="w-5 h-5 border-2 border-gray-300 rounded flex items-center justify-center mr-3 checkbox-custom"
-                  >
-                    <i class="ri-check-line text-white text-sm hidden"></i>
-                  </div>
-                  <span class="text-sm text-gray-700"
-                    >Signalement anonyme (vos informations ne seront pas
-                    transmises)</span
-                  >
-                </label>
-              </div>
+              <div><span id="char-count">247</span>/500 caractères</div>
             </div>
           </div>
-          <div class="border-t border-gray-200 pt-8">
-            <div class="bg-blue-50 rounded-lg p-4 mb-6">
-              <div class="flex items-start">
+        </div>
+        <div class="bg-gray-50 rounded-lg p-6">
+          <h3 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+            <div class="w-6 h-6 flex items-center justify-center mr-3">
+              <i class="ri-user-line text-lg text-primary"></i>
+            </div>
+            Informations du témoin
+          </h3>
+          <div class="space-y-4">
+            <div class="grid md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Prénom</label>
+                <input type="text"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                  placeholder="Votre prénom" value="Koffi" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Nom</label>
+                <input type="text"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                  placeholder="Votre nom" value="Mensah" />
+              </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Téléphone</label>
+                <input type="tel"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                  placeholder="+229 XX XX XX XX" value="+229 97 45 32 18" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                <input type="email"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                  placeholder="votre@email.com" value="koffi.mensah@email.com" />
+              </div>
+            </div>
+            <div class="flex items-center">
+              <input type="checkbox" id="anonymous" class="hidden" />
+              <label for="anonymous" class="flex items-center cursor-pointer">
                 <div
-                  class="w-5 h-5 flex items-center justify-center mr-3 mt-0.5"
-                >
-                  <i class="ri-information-line text-primary text-sm"></i>
-                </div>
-                <div class="text-sm text-blue-800">
-                  <p class="font-medium mb-1">Confidentialité et traitement</p>
-                  <p>
-                    Vos données personnelles sont protégées conformément à la
-                    loi béninoise sur la protection des données. Elles ne seront
-                    utilisées que dans le cadre du traitement de votre
-                    signalement.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-center mb-6">
-              <input type="checkbox" id="terms" class="hidden" />
-              <label for="terms" class="flex items-center cursor-pointer">
-                <div
-                  class="w-5 h-5 border-2 border-gray-300 rounded flex items-center justify-center mr-3 checkbox-custom"
-                >
+                  class="w-5 h-5 border-2 border-gray-300 rounded flex items-center justify-center mr-3 checkbox-custom">
                   <i class="ri-check-line text-white text-sm hidden"></i>
                 </div>
-                <span class="text-sm text-gray-700"
-                  >J'accepte les
-                  <a href="#" class="text-primary hover:underline"
-                    >conditions d'utilisation</a
-                  >
-                  et la
-                  <a href="#" class="text-primary hover:underline"
-                    >politique de confidentialité</a
-                  ></span
-                >
+                <span class="text-sm text-gray-700">Signalement anonyme (vos informations ne seront pas
+                  transmises)</span>
               </label>
             </div>
-            <div class="flex flex-col sm:flex-row gap-4 justify-end">
-              <button
-                type="button"
-                class="bg-gray-200 text-gray-700 px-8 py-3 !rounded-button font-semibold hover:bg-gray-300 transition-colors whitespace-nowrap"
-              >
-                Annuler
-              </button>
-              <button
-                type="submit"
-                class="bg-primary text-white px-8 py-3 !rounded-button font-semibold hover:bg-blue-700 transition-colors whitespace-nowrap flex items-center justify-center"
-              >
-                <div class="w-5 h-5 flex items-center justify-center mr-2">
-                  <i class="ri-send-plane-line text-sm"></i>
-                </div>
-                Soumettre le signalement
-              </button>
+          </div>
+        </div>
+        <div class="border-t border-gray-200 pt-8">
+          <div class="bg-blue-50 rounded-lg p-4 mb-6">
+            <div class="flex items-start">
+              <div class="w-5 h-5 flex items-center justify-center mr-3 mt-0.5">
+                <i class="ri-information-line text-primary text-sm"></i>
+              </div>
+              <div class="text-sm text-blue-800">
+                <p class="font-medium mb-1">Confidentialité et traitement</p>
+                <p>
+                  Vos données personnelles sont protégées conformément à la
+                  loi béninoise sur la protection des données. Elles ne seront
+                  utilisées que dans le cadre du traitement de votre
+                  signalement.
+                </p>
+              </div>
             </div>
           </div>
-        </form>
+          <div class="flex items-center mb-6">
+            <input type="checkbox" id="terms" class="hidden" />
+            <label for="terms" class="flex items-center cursor-pointer">
+              <div
+                class="w-5 h-5 border-2 border-gray-300 rounded flex items-center justify-center mr-3 checkbox-custom">
+                <i class="ri-check-line text-white text-sm hidden"></i>
+              </div>
+              <span class="text-sm text-gray-700">J'accepte les
+                <a href="#" class="text-primary hover:underline">conditions d'utilisation</a>
+                et la
+                <a href="#" class="text-primary hover:underline">politique de confidentialité</a></span>
+            </label>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4 justify-end">
+            <button type="button"
+              class="bg-gray-200 text-gray-700 px-8 py-3 !rounded-button font-semibold hover:bg-gray-300 transition-colors whitespace-nowrap">
+              Annuler
+            </button>
+            <button type="submit"
+              class="bg-primary text-white px-8 py-3 !rounded-button font-semibold hover:bg-blue-700 transition-colors whitespace-nowrap flex items-center justify-center">
+              <div class="w-5 h-5 flex items-center justify-center mr-2">
+                <i class="ri-send-plane-line text-sm"></i>
+              </div>
+              Soumettre le signalement
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="mt-8 bg-white rounded-xl shadow-sm p-6">
+      <h3 class="text-lg font-semibold text-gray-900 mb-4">
+        Que se passe-t-il après ?
+      </h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="text-center">
+          <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+            <i class="ri-check-line text-primary text-lg"></i>
+          </div>
+          <h4 class="font-medium text-gray-900 mb-2">Réception confirmée</h4>
+          <p class="text-sm text-gray-600">
+            Vous recevrez un accusé de réception avec un numéro de suivi
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+            <i class="ri-search-line text-secondary text-lg"></i>
+          </div>
+          <h4 class="font-medium text-gray-900 mb-2">Vérification</h4>
+          <p class="text-sm text-gray-600">
+            Nos équipes vérifient la validité et la complétude du signalement
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
+            <i class="ri-shield-check-line text-orange-600 text-lg"></i>
+          </div>
+          <h4 class="font-medium text-gray-900 mb-2">Transmission</h4>
+          <p class="text-sm text-gray-600">
+            Le dossier est transmis aux autorités compétentes pour suite
+          </p>
+        </div>
       </div>
-      <div class="mt-8 bg-white rounded-xl shadow-sm p-6">
-        <h3 class="text-lg font-semibold text-gray-900 mb-4">
-          Que se passe-t-il après ?
-        </h3>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="text-center">
-            <div
-              class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3"
-            >
-              <i class="ri-check-line text-primary text-lg"></i>
-            </div>
-            <h4 class="font-medium text-gray-900 mb-2">Réception confirmée</h4>
-            <p class="text-sm text-gray-600">
-              Vous recevrez un accusé de réception avec un numéro de suivi
-            </p>
-          </div>
-          <div class="text-center">
-            <div
-              class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-3"
-            >
-              <i class="ri-search-line text-secondary text-lg"></i>
-            </div>
-            <h4 class="font-medium text-gray-900 mb-2">Vérification</h4>
-            <p class="text-sm text-gray-600">
-              Nos équipes vérifient la validité et la complétude du signalement
-            </p>
-          </div>
-          <div class="text-center">
-            <div
-              class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3"
-            >
-              <i class="ri-shield-check-line text-orange-600 text-lg"></i>
-            </div>
-            <h4 class="font-medium text-gray-900 mb-2">Transmission</h4>
-            <p class="text-sm text-gray-600">
-              Le dossier est transmis aux autorités compétentes pour suite
-            </p>
+    </div>
+  </main>
+
+<!-- Boîte de message centrée -->
+<div id="form-message" 
+     style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            padding: 15px 25px; background-color: #38a169; color: white; 
+            border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
+            display: none; z-index: 1000; font-size: 16px; text-align: center;">
+</div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white">
+    <div class="border-t border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="text-gray-400 text-sm mb-4 md:mb-0">
+            © 2025 CivActu. Tous droits réservés.
           </div>
         </div>
       </div>
-    </main>
+    </div>
+  </footer>
 
-        <!-- Footer -->
-    <footer class="bg-gray-900 text-white">
-        <div class="border-t border-gray-800">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <div class="text-gray-400 text-sm mb-4 md:mb-0">
-                        © 2025 CivActu. Tous droits réservés.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script id="form-interactions">
-      document.addEventListener("DOMContentLoaded", function () {
-        const mediaDropzone = document.getElementById("media-dropzone");
-        const mediaPreview = document.getElementById("media-preview");
-        const charCount = document.getElementById("char-count");
-        const textarea = document.querySelector("textarea");
-        const nowButton = document
-          .querySelector('button[type="button"]:has(.ri-calendar-line)')
-          .parentElement.querySelector("button:last-child");
-        const dateInput = document.querySelector('input[type="date"]');
-        const timeInput = document.querySelector('input[type="time"]');
-        mediaDropzone.addEventListener("click", function () {
-          mediaPreview.classList.remove("hidden");
-        });
-        textarea.addEventListener("input", function () {
-          charCount.textContent = this.value.length;
-        });
-        nowButton.addEventListener("click", function () {
-          const now = new Date();
-          dateInput.value = now.toISOString().split("T")[0];
-          timeInput.value = now.toTimeString().slice(0, 5);
+  <script id="form-interactions">
+    document.addEventListener("DOMContentLoaded", function () {
+      const mediaDropzone = document.getElementById("media-dropzone");
+      const mediaPreview = document.getElementById("media-preview");
+      const charCount = document.getElementById("char-count");
+      const textarea = document.querySelector("textarea");
+      const nowButton = document
+        .querySelector('button[type="button"]:has(.ri-calendar-line)')
+        .parentElement.querySelector("button:last-child");
+      const dateInput = document.querySelector('input[type="date"]');
+      const timeInput = document.querySelector('input[type="time"]');
+      mediaDropzone.addEventListener("click", function () {
+        mediaPreview.classList.remove("hidden");
+      });
+      textarea.addEventListener("input", function () {
+        charCount.textContent = this.value.length;
+      });
+      nowButton.addEventListener("click", function () {
+        const now = new Date();
+        dateInput.value = now.toISOString().split("T")[0];
+        timeInput.value = now.toTimeString().slice(0, 5);
+      });
+    });
+  </script>
+  <script id="checkbox-functionality">
+    document.addEventListener("DOMContentLoaded", function () {
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      checkboxes.forEach((checkbox) => {
+        const label = checkbox.nextElementSibling;
+        const checkIcon = label.querySelector(".ri-check-line");
+        const checkboxCustom = label.querySelector(".checkbox-custom");
+        checkbox.addEventListener("change", function () {
+          if (this.checked) {
+            checkboxCustom.classList.add("bg-primary", "border-primary");
+            checkboxCustom.classList.remove("border-gray-300");
+            checkIcon.classList.remove("hidden");
+          } else {
+            checkboxCustom.classList.remove("bg-primary", "border-primary");
+            checkboxCustom.classList.add("border-gray-300");
+            checkIcon.classList.add("hidden");
+          }
         });
       });
-    </script>
-    <script id="checkbox-functionality">
-      document.addEventListener("DOMContentLoaded", function () {
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        checkboxes.forEach((checkbox) => {
-          const label = checkbox.nextElementSibling;
-          const checkIcon = label.querySelector(".ri-check-line");
-          const checkboxCustom = label.querySelector(".checkbox-custom");
-          checkbox.addEventListener("change", function () {
-            if (this.checked) {
-              checkboxCustom.classList.add("bg-primary", "border-primary");
-              checkboxCustom.classList.remove("border-gray-300");
-              checkIcon.classList.remove("hidden");
-            } else {
-              checkboxCustom.classList.remove("bg-primary", "border-primary");
-              checkboxCustom.classList.add("border-gray-300");
-              checkIcon.classList.add("hidden");
+    });
+  </script>
+  <script id="datetime-and-location">
+    document.addEventListener("DOMContentLoaded", function () {
+      const dateInput = document.querySelector('input[type="date"]');
+      const timeInput = document.querySelector('input[type="time"]');
+      const addressInput = document.querySelector(
+        "input[placeholder=\"Entrez l'adresse de l'infraction\"]",
+      );
+      const quartierInput = document.querySelector('input[placeholder="Quartier"]');
+      let map, marker;
+      function setCurrentDateTime() {
+        const now = new Date();
+        dateInput.value = now.toISOString().split("T")[0];
+        timeInput.value = now.toTimeString().slice(0, 5);
+      }
+      function initMap(position) {
+        const coords = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: coords,
+          zoom: 15,
+        });
+        marker = new google.maps.Marker({
+          position: coords,
+          map: map,
+          draggable: true,
+        });
+        const geocoder = new google.maps.Geocoder();
+        geocoder.geocode({ location: coords }, (results, status) => {
+          if (status === "OK" && results[0]) {
+            addressInput.value = results[0].formatted_address;
+            const addressComponents = results[0].address_components;
+            const neighborhood = addressComponents.find(
+              (component) =>
+                component.types.includes("neighborhood") ||
+                component.types.includes("sublocality"),
+            );
+            if (neighborhood) {
+              quartierInput.value = neighborhood.long_name;
             }
-          });
+          }
         });
-      });
-    </script>
-    <script id="datetime-and-location">
-      document.addEventListener("DOMContentLoaded", function () {
-        const dateInput = document.querySelector('input[type="date"]');
-        const timeInput = document.querySelector('input[type="time"]');
-        const addressInput = document.querySelector(
-          "input[placeholder=\"Entrez l'adresse de l'infraction\"]",
-        );
-        const quartierInput = document.querySelector('input[placeholder="Quartier"]');
-        let map, marker;
-        function setCurrentDateTime() {
-          const now = new Date();
-          dateInput.value = now.toISOString().split("T")[0];
-          timeInput.value = now.toTimeString().slice(0, 5);
-        }
-        function initMap(position) {
-          const coords = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          };
-          map = new google.maps.Map(document.getElementById("map"), {
-            center: coords,
-            zoom: 15,
-          });
-          marker = new google.maps.Marker({
-            position: coords,
-            map: map,
-            draggable: true,
-          });
-          const geocoder = new google.maps.Geocoder();
-          geocoder.geocode({ location: coords }, (results, status) => {
+        google.maps.event.addListener(marker, "dragend", function () {
+          const position = marker.getPosition();
+          geocoder.geocode({ location: position.toJSON() }, (results, status) => {
             if (status === "OK" && results[0]) {
               addressInput.value = results[0].formatted_address;
               const addressComponents = results[0].address_components;
@@ -560,38 +492,80 @@ Véhicule immatriculé AB-123-CD a grillé le feu rouge à l'intersection de l'A
               }
             }
           });
-          google.maps.event.addListener(marker, "dragend", function () {
-            const position = marker.getPosition();
-            geocoder.geocode({ location: position.toJSON() }, (results, status) => {
-              if (status === "OK" && results[0]) {
-                addressInput.value = results[0].formatted_address;
-                const addressComponents = results[0].address_components;
-                const neighborhood = addressComponents.find(
-                  (component) =>
-                    component.types.includes("neighborhood") ||
-                    component.types.includes("sublocality"),
-                );
-                if (neighborhood) {
-                  quartierInput.value = neighborhood.long_name;
-                }
-              }
-            });
-          });
-        }
-        setCurrentDateTime();
+        });
+      }
+      setCurrentDateTime();
 
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(initMap, (error) => {
-            console.error("Erreur de géolocalisation:", error);
-            initMap({ coords: { latitude: 6.3702928, longitude: 2.3912362 } }); // Default to Cotonou
-          });
-        } else {
-          console.error("Géolocalisation non supportée");
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(initMap, (error) => {
+          console.error("Erreur de géolocalisation:", error);
           initMap({ coords: { latitude: 6.3702928, longitude: 2.3912362 } }); // Default to Cotonou
-        }
-      });
-    </script>
-    <script id="form-validation">
+        });
+      } else {
+        console.error("Géolocalisation non supportée");
+        initMap({ coords: { latitude: 6.3702928, longitude: 2.3912362 } }); // Default to Cotonou
+      }
+    });
+  </script>
+
+
+
+<script id="form-validation">
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("form");
+  const submitButton = form.querySelector('button[type="submit"]');
+  const termsCheckbox = document.getElementById("terms");
+  const messageBox = document.getElementById("form-message");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Vérification de la case conditions
+    if (!termsCheckbox.checked) {
+      showMessage("⚠️ Veuillez accepter les conditions d'utilisation pour continuer.", "red");
+      return;
+    }
+
+    // Mode chargement du bouton
+    const originalText = submitButton.innerHTML;
+    submitButton.innerHTML =
+      '<div class="w-5 h-5 flex items-center justify-center mr-2"><i class="ri-loader-4-line text-sm animate-spin"></i></div>Envoi en cours...';
+    submitButton.disabled = true;
+
+    // Simulation de l’envoi
+    setTimeout(() => {
+      // Réinitialiser le bouton
+      submitButton.innerHTML = originalText;
+      submitButton.disabled = false;
+
+      // Afficher le message de succès
+      showMessage("✅ Signalement envoyé avec succès ! Vous recevrez un accusé de réception par email.", "green");
+
+      // Réinitialiser le formulaire
+      form.reset();
+
+      // Redirection après 4 secondes
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 500);
+    }, 2000);
+  });
+
+  // Fonction pour afficher le message
+  function showMessage(message, color) {
+    messageBox.textContent = message;
+    messageBox.style.backgroundColor = color === "green" ? "#38a169" : "#e53e3e";
+    messageBox.style.display = "block";
+
+    // Faire disparaître après 3 secondes
+    setTimeout(() => {
+      messageBox.style.display = "none";
+    }, 3000);
+  }
+});
+</script>
+
+  <!-- <script id="form-validation">
       document.addEventListener("DOMContentLoaded", function () {
         const form = document.querySelector("form");
         const submitButton = form.querySelector('button[type="submit"]');
@@ -612,6 +586,7 @@ Véhicule immatriculé AB-123-CD a grillé le feu rouge à l'intersection de l'A
           }, 2000);
         });
       });
-    </script>
-  </body>
+    </script> -->
+</body>
+
 </html>
