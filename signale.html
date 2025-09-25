@@ -85,43 +85,26 @@
               <p class="text-gray-600 mb-4">
                 Glissez-déposez vos fichiers ici ou cliquez pour sélectionner
               </p>
-              <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                <button type="button"
-                  class="bg-primary text-white px-6 py-2 !rounded-button text-sm font-medium hover:bg-blue-700 transition-colors whitespace-nowrap flex items-center justify-center">
-                  <div class="w-4 h-4 flex items-center justify-center mr-2">
-                    <i class="ri-camera-line text-sm"></i>
-                  </div>
-                  Prendre une photo
-                </button>
-                <button type="button"
-                  class="bg-white text-gray-700 border border-gray-300 px-6 py-2 !rounded-button text-sm font-medium hover:bg-gray-50 transition-colors whitespace-nowrap flex items-center justify-center">
-                  <div class="w-4 h-4 flex items-center justify-center mr-2">
-                    <i class="ri-folder-line text-sm"></i>
-                  </div>
-                  Choisir depuis la galerie
-                </button>
-              </div>
 
               <div class="flex flex-col sm:flex-row gap-3 w-full max-w-md mx-auto">
-  <!-- Bouton photo -->
-  <button type="button"
-    class="flex-1 bg-primary text-white px-4 py-3 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors flex items-center justify-center">
-    <i class="ri-camera-line text-lg mr-2"></i>
-    <span class="truncate">Prendre une photo</span>
-  </button>
+                <!-- Bouton photo -->
+                <button type="button"
+                  class="flex-1 bg-primary text-white px-4 py-3 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors flex items-center justify-center">
+                  <i class="ri-camera-line text-lg mr-2"></i>
+                  <span class="truncate">Prendre une photo</span>
+                </button>
 
-  <!-- Bouton galerie -->
-  <button type="button"
-    class="flex-1 bg-white text-gray-700 border border-gray-300 px-4 py-3 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors flex items-center justify-center">
-    <i class="ri-folder-line text-lg mr-2"></i>
-    <span class="truncate">Choisir depuis la galerie</span>
-  </button>
-</div>
+                <!-- Bouton galerie -->
+                <button type="button"
+                  class="flex-1 bg-white text-gray-700 border border-gray-300 px-4 py-3 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors flex items-center justify-center">
+                  <i class="ri-folder-line text-lg mr-2"></i>
+                  <span class="truncate">Choisir depuis la galerie</span>
+                </button>
+              </div>
             </div>
             <div id="media-preview" class="grid grid-cols-2 md:grid-cols-4 gap-4 hidden">
               <div class="relative bg-gray-100 rounded-lg aspect-square">
-                <img
-                  alt="Photo d'infraction" class="w-full h-full object-cover rounded-lg" />
+                <img alt="Photo d'infraction" class="w-full h-full object-cover rounded-lg" />
                 <button type="button"
                   class="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600 transition-colors">
                   <i class="ri-close-line text-xs"></i>
@@ -366,13 +349,12 @@
     </div>
   </main>
 
-<!-- Boîte de message centrée -->
-<div id="form-message" 
-     style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  <!-- Boîte de message centrée -->
+  <div id="form-message" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
             padding: 15px 25px; background-color: #38a169; color: white; 
             border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
             display: none; z-index: 1000; font-size: 16px; text-align: center;">
-</div>
+  </div>
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-white">
@@ -496,78 +478,78 @@
       setCurrentDateTime();
 
       if ("geolocation" in navigator) {
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        latInput.value = pos.coords.latitude;
-        lonInput.value = pos.coords.longitude;
-        console.log("Localisation récupérée :", latInput.value, lonInput.value);
-      },
-      (err) => {
-        console.warn("Erreur localisation :", err.message);
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            latInput.value = pos.coords.latitude;
+            lonInput.value = pos.coords.longitude;
+            console.log("Localisation récupérée :", latInput.value, lonInput.value);
+          },
+          (err) => {
+            console.warn("Erreur localisation :", err.message);
+          }
+        );
+      } else {
+        console.warn("La géolocalisation n'est pas supportée par ce navigateur.");
       }
-    );
-  } else {
-    console.warn("La géolocalisation n'est pas supportée par ce navigateur.");
-  }
     });
   </script>
 
 
 
-<script id="form-validation">
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector("form");
-  const submitButton = form.querySelector('button[type="submit"]');
-  const termsCheckbox = document.getElementById("terms");
-  const messageBox = document.getElementById("form-message");
+  <script id="form-validation">
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.querySelector("form");
+      const submitButton = form.querySelector('button[type="submit"]');
+      const termsCheckbox = document.getElementById("terms");
+      const messageBox = document.getElementById("form-message");
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-    // Vérification de la case conditions
-    if (!termsCheckbox.checked) {
-      showMessage("⚠️ Veuillez accepter les conditions d'utilisation pour continuer.", "red");
-      return;
-    }
+        // Vérification de la case conditions
+        if (!termsCheckbox.checked) {
+          showMessage("⚠️ Veuillez accepter les conditions d'utilisation pour continuer.", "red");
+          return;
+        }
 
-    // Mode chargement du bouton
-    const originalText = submitButton.innerHTML;
-    submitButton.innerHTML =
-      '<div class="w-5 h-5 flex items-center justify-center mr-2"><i class="ri-loader-4-line text-sm animate-spin"></i></div>Envoi en cours...';
-    submitButton.disabled = true;
+        // Mode chargement du bouton
+        const originalText = submitButton.innerHTML;
+        submitButton.innerHTML =
+          '<div class="w-5 h-5 flex items-center justify-center mr-2"><i class="ri-loader-4-line text-sm animate-spin"></i></div>Envoi en cours...';
+        submitButton.disabled = true;
 
-    // Simulation de l’envoi
-    setTimeout(() => {
-      // Réinitialiser le bouton
-      submitButton.innerHTML = originalText;
-      submitButton.disabled = false;
+        // Simulation de l’envoi
+        setTimeout(() => {
+          // Réinitialiser le bouton
+          submitButton.innerHTML = originalText;
+          submitButton.disabled = false;
 
-      // Afficher le message de succès
-      showMessage("✅ Signalement envoyé avec succès ! Vous recevrez un accusé de réception par email.", "green");
+          // Afficher le message de succès
+          showMessage("✅ Signalement envoyé avec succès ! Vous recevrez un accusé de réception par email.", "green");
 
-      // Réinitialiser le formulaire
-      form.reset();
+          // Réinitialiser le formulaire
+          form.reset();
 
-      // Redirection après 4 secondes
-      setTimeout(() => {
-        window.location.href = "signalement.html";
-      }, 500);
-    }, 2000);
-  });
+          // Redirection après 4 secondes
+          setTimeout(() => {
+            window.location.href = "signalement.html";
+          }, 500);
+        }, 2000);
+      });
 
-  // Fonction pour afficher le message
-  function showMessage(message, color) {
-    messageBox.textContent = message;
-    messageBox.style.backgroundColor = color === "green" ? "#38a169" : "#e53e3e";
-    messageBox.style.display = "block";
+      // Fonction pour afficher le message
+      function showMessage(message, color) {
+        messageBox.textContent = message;
+        messageBox.style.backgroundColor = color === "green" ? "#38a169" : "#e53e3e";
+        messageBox.style.display = "block";
 
-    // Faire disparaître après 3 secondes
-    setTimeout(() => {
-      messageBox.style.display = "none";
-    }, 3000);
-  }
-});
-</script>
+        // Faire disparaître après 3 secondes
+        setTimeout(() => {
+          messageBox.style.display = "none";
+        }, 3000);
+      }
+    });
+  </script>
 
   <!-- <script id="form-validation">
       document.addEventListener("DOMContentLoaded", function () {
