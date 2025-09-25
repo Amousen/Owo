@@ -10,11 +10,12 @@
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
     <style>
-        .bg-whites{
+        .bg-whites {
             background-color: #1d4ed8;
             color: white;
         }
-        .bg-whites p{
+
+        .bg-whites p {
             color: white;
         }
     </style>
@@ -22,7 +23,7 @@
 </head>
 
 <body class="bg-gray-50 min-h-screen" cz-shortcut-listen="true">
- 
+
     <nav class="bg-white shadow-sm border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
@@ -50,8 +51,10 @@
                 </div>
             </div>
         </div>
+
         <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6"
+                style="transform: translateY(0px); box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px; transition: 0.2s ease-in-out;">
                 <div class="flex justify-between items-start mb-4">
                     <div class="flex-1">
                         <div class="flex items-center space-x-2 text-sm text-gray-600 mb-2">
@@ -64,7 +67,7 @@
                             <div class="w-4 h-4 flex items-center justify-center">
                                 <i class="ri-map-pin-line"></i>
                             </div>
-                            <span>Paris 11ème - République</span>
+                            <span>Cotonou - Dantokpa</span>
                         </div>
                         <div class="flex items-start space-x-2 text-sm text-gray-800 mb-2">
                             <div class="w-4 h-4 flex items-center justify-center mt-0.5">
@@ -105,7 +108,7 @@
                             <div class="w-4 h-4 flex items-center justify-center">
                                 <i class="ri-map-pin-line"></i>
                             </div>
-                            <span>Lyon 3ème - Part-Dieu</span>
+                            <span>Porto-Novo - Ouando</span>
                         </div>
                         <div class="flex items-start space-x-2 text-sm text-gray-800 mb-2">
                             <div class="w-4 h-4 flex items-center justify-center mt-0.5">
@@ -122,8 +125,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 h-fit"
-                style="transform: translateY(0px); box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px; transition: 0.2s ease-in-out;">
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 h-fit">
                 <div class="flex flex-col h-full">
                     <div class="flex justify-between items-start mb-4">
                         <span
@@ -142,13 +144,87 @@
                             <div class="w-4 h-4 flex items-center justify-center">
                                 <i class="ri-map-pin-line"></i>
                             </div>
-                            <span>Marseille 1er - Vieux-Port</span>
+                            <span>Parakou - Banikanni</span>
                         </div>
                         <div class="flex items-start space-x-2 text-sm text-gray-800 mb-2">
                             <div class="w-4 h-4 flex items-center justify-center mt-0.5">
                                 <i class="ri-file-text-line"></i>
                             </div>
                             <span>Panneau de signalisation masqué par la végétation, visibilité réduite</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-sm text-gray-600">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-camera-line"></i>
+                            </div>
+                            <span>Photo jointe</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 h-fit"
+                style="transform: translateY(0px); box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px; transition: 0.2s ease-in-out;">
+                <div class="flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            Résolu
+                        </span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center space-x-2 text-sm text-gray-600 mb-2">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-calendar-line"></i>
+                            </div>
+                            <span>05 janvier 2025, 11:20</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-sm text-gray-600 mb-2">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span>Abomey-Calavi - Godomey</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-800 mb-2">
+                            <div class="w-4 h-4 flex items-center justify-center mt-0.5">
+                                <i class="ri-file-text-line"></i>
+                            </div>
+                            <span>Passage piéton effacé, dangereux pour la traversée des piétons</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-sm text-gray-400">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-camera-line"></i>
+                            </div>
+                            <span>Aucune photo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 h-fit"
+                style="transform: translateY(0px); box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;">
+                <div class="flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                            En cours
+                        </span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center space-x-2 text-sm text-gray-600 mb-2">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-calendar-line"></i>
+                            </div>
+                            <span>02 janvier 2025, 08:30</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-sm text-gray-600 mb-2">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span>Bohicon - Gnidjazoun</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-800 mb-2">
+                            <div class="w-4 h-4 flex items-center justify-center mt-0.5">
+                                <i class="ri-file-text-line"></i>
+                            </div>
+                            <span>Éclairage public défaillant, zone mal éclairée la nuit</span>
                         </div>
                         <div class="flex items-center space-x-2 text-sm text-gray-600">
                             <div class="w-4 h-4 flex items-center justify-center">
@@ -172,87 +248,13 @@
                             <div class="w-4 h-4 flex items-center justify-center">
                                 <i class="ri-calendar-line"></i>
                             </div>
-                            <span>05 janvier 2025, 11:20</span>
-                        </div>
-                        <div class="flex items-center space-x-2 text-sm text-gray-600 mb-2">
-                            <div class="w-4 h-4 flex items-center justify-center">
-                                <i class="ri-map-pin-line"></i>
-                            </div>
-                            <span>Toulouse - Capitole</span>
-                        </div>
-                        <div class="flex items-start space-x-2 text-sm text-gray-800 mb-2">
-                            <div class="w-4 h-4 flex items-center justify-center mt-0.5">
-                                <i class="ri-file-text-line"></i>
-                            </div>
-                            <span>Passage piéton effacé, dangereux pour la traversée des piétons</span>
-                        </div>
-                        <div class="flex items-center space-x-2 text-sm text-gray-400">
-                            <div class="w-4 h-4 flex items-center justify-center">
-                                <i class="ri-camera-line"></i>
-                            </div>
-                            <span>Aucune photo</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 h-fit"
-                style="transform: translateY(0px); box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px; transition: 0.2s ease-in-out;">
-                <div class="flex flex-col h-full">
-                    <div class="flex justify-between items-start mb-4">
-                        <span
-                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
-                            En cours
-                        </span>
-                    </div>
-                    <div class="flex-1">
-                        <div class="flex items-center space-x-2 text-sm text-gray-600 mb-2">
-                            <div class="w-4 h-4 flex items-center justify-center">
-                                <i class="ri-calendar-line"></i>
-                            </div>
-                            <span>02 janvier 2025, 08:30</span>
-                        </div>
-                        <div class="flex items-center space-x-2 text-sm text-gray-600 mb-2">
-                            <div class="w-4 h-4 flex items-center justify-center">
-                                <i class="ri-map-pin-line"></i>
-                            </div>
-                            <span>Nice - Promenade des Anglais</span>
-                        </div>
-                        <div class="flex items-start space-x-2 text-sm text-gray-800 mb-2">
-                            <div class="w-4 h-4 flex items-center justify-center mt-0.5">
-                                <i class="ri-file-text-line"></i>
-                            </div>
-                            <span>Éclairage public défaillant, zone mal éclairée la nuit</span>
-                        </div>
-                        <div class="flex items-center space-x-2 text-sm text-gray-600">
-                            <div class="w-4 h-4 flex items-center justify-center">
-                                <i class="ri-camera-line"></i>
-                            </div>
-                            <span>Photo jointe</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 h-fit"
-                style="transform: translateY(0px); box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px; transition: 0.2s ease-in-out;">
-                <div class="flex flex-col h-full">
-                    <div class="flex justify-between items-start mb-4">
-                        <span
-                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                            Résolu
-                        </span>
-                    </div>
-                    <div class="flex-1">
-                        <div class="flex items-center space-x-2 text-sm text-gray-600 mb-2">
-                            <div class="w-4 h-4 flex items-center justify-center">
-                                <i class="ri-calendar-line"></i>
-                            </div>
                             <span>28 décembre 2024, 15:10</span>
                         </div>
                         <div class="flex items-center space-x-2 text-sm text-gray-600 mb-2">
                             <div class="w-4 h-4 flex items-center justify-center">
                                 <i class="ri-map-pin-line"></i>
                             </div>
-                            <span>Bordeaux - Centre-ville</span>
+                            <span>Natitingou - Kountori</span>
                         </div>
                         <div class="flex items-start space-x-2 text-sm text-gray-800 mb-2">
                             <div class="w-4 h-4 flex items-center justify-center mt-0.5">
@@ -271,19 +273,19 @@
             </div>
         </div>
     </div>
-    
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-white">
-    <div class="border-t border-gray-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-          <div class="text-gray-400 text-sm mb-4 md:mb-0">
-            © 2025 CivActu. Tous droits réservés.
-          </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="border-t border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-gray-400 text-sm mb-4 md:mb-0">
+                        © 2025 CivActu. Tous droits réservés.
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
     <script id="navigation-handler">
         document.addEventListener('DOMContentLoaded', function () {
             const backButton = document.querySelector('nav button');
