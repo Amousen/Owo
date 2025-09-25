@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Signalements - Sécurité Routière</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+
+</head>
+
+<body class="bg-gray-50 min-h-screen" cz-shortcut-listen="true"><audio class="audio-for-speech" src=""></audio>
+ 
+    <nav class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html"
+                    class="flex items-center space-x-2 text-gray-700 hover:text-primary transition-colors !rounded-button whitespace-nowrap">
+                    <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-arrow-left-line"></i>
+                    </div>
+                    <span class="font-medium">Accueil</span>
+                </a>
+                <h1 class="text-xl font-semibold text-gray-900">Mes Signalements</h1>
+                <div class="w-20"></div>
+            </div>
+        </div>
+    </nav>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-8">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 flex items-center justify-center text-primary">
+                    <i class="ri-bar-chart-line ri-lg"></i>
+                </div>
+                <div>
+                    <p class="text-lg font-medium text-gray-900">Vous avez effectué 12 signalements</p>
+                    <p class="text-sm text-gray-600">Dernière activité il y a 2 jours</p>
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="flex-1">
+                        <div class="flex items-center space-x-2 text-sm text-gray-600 mb-2">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-calendar-line"></i>
+                            </div>
+                            <span>15 janvier 2025, 14:30</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-sm text-gray-600 mb-2">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span>Paris 11ème - République</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-800 mb-2">
+                            <div class="w-4 h-4 flex items-center justify-center mt-0.5">
+                                <i class="ri-file-text-line"></i>
+                            </div>
+                            <span>Feu tricolore défaillant au carrefour, provoque des embouteillages importants</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-sm text-gray-600">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-camera-line"></i>
+                            </div>
+                            <span>Photo jointe</span>
+                        </div>
+                    </div>
+                    <span
+                        class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                        En attente
+                    </span>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 h-fit"
+                style="transform: translateY(0px); box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px; transition: 0.2s ease-in-out;">
+                <div class="flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                            En cours
+                        </span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center space-x-2 text-sm text-gray-600 mb-2">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-calendar-line"></i>
+                            </div>
+                            <span>12 janvier 2025, 09:15</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-sm text-gray-600 mb-2">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span>Lyon 3ème - Part-Dieu</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-800 mb-2">
+                            <div class="w-4 h-4 flex items-center justify-center mt-0.5">
+                                <i class="ri-file-text-line"></i>
+                            </div>
+                            <span>Nid de poule dangereux sur la chaussée, risque d'accident pour les deux-roues</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-sm text-gray-400">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-camera-line"></i>
+                            </div>
+                            <span>Aucune photo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 h-fit"
+                style="transform: translateY(0px); box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px; transition: 0.2s ease-in-out;">
+                <div class="flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            Résolu
+                        </span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center space-x-2 text-sm text-gray-600 mb-2">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-calendar-line"></i>
+                            </div>
+                            <span>08 janvier 2025, 16:45</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-sm text-gray-600 mb-2">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span>Marseille 1er - Vieux-Port</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-800 mb-2">
+                            <div class="w-4 h-4 flex items-center justify-center mt-0.5">
+                                <i class="ri-file-text-line"></i>
+                            </div>
+                            <span>Panneau de signalisation masqué par la végétation, visibilité réduite</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-sm text-gray-600">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-camera-line"></i>
+                            </div>
+                            <span>Photo jointe</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 h-fit">
+                <div class="flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            Résolu
+                        </span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center space-x-2 text-sm text-gray-600 mb-2">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-calendar-line"></i>
+                            </div>
+                            <span>05 janvier 2025, 11:20</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-sm text-gray-600 mb-2">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span>Toulouse - Capitole</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-800 mb-2">
+                            <div class="w-4 h-4 flex items-center justify-center mt-0.5">
+                                <i class="ri-file-text-line"></i>
+                            </div>
+                            <span>Passage piéton effacé, dangereux pour la traversée des piétons</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-sm text-gray-400">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-camera-line"></i>
+                            </div>
+                            <span>Aucune photo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 h-fit"
+                style="transform: translateY(0px); box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px; transition: 0.2s ease-in-out;">
+                <div class="flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                            En cours
+                        </span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center space-x-2 text-sm text-gray-600 mb-2">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-calendar-line"></i>
+                            </div>
+                            <span>02 janvier 2025, 08:30</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-sm text-gray-600 mb-2">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span>Nice - Promenade des Anglais</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-800 mb-2">
+                            <div class="w-4 h-4 flex items-center justify-center mt-0.5">
+                                <i class="ri-file-text-line"></i>
+                            </div>
+                            <span>Éclairage public défaillant, zone mal éclairée la nuit</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-sm text-gray-600">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-camera-line"></i>
+                            </div>
+                            <span>Photo jointe</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 h-fit"
+                style="transform: translateY(0px); box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px; transition: 0.2s ease-in-out;">
+                <div class="flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            Résolu
+                        </span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center space-x-2 text-sm text-gray-600 mb-2">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-calendar-line"></i>
+                            </div>
+                            <span>28 décembre 2024, 15:10</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-sm text-gray-600 mb-2">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span>Bordeaux - Centre-ville</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-800 mb-2">
+                            <div class="w-4 h-4 flex items-center justify-center mt-0.5">
+                                <i class="ri-file-text-line"></i>
+                            </div>
+                            <span>Barrière de sécurité endommagée suite à un accident</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-sm text-gray-600">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-camera-line"></i>
+                            </div>
+                            <span>Photo jointe</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-12 text-center">
+            <button
+                class="inline-flex items-center px-6 py-3 bg-primary text-white font-medium rounded-button hover:bg-red-700 transition-colors !rounded-button whitespace-nowrap">
+                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                    <i class="ri-add-line"></i>
+                </div>
+                Nouveau signalement
+            </button>
+        </div>
+    </div>
+    <script id="navigation-handler">
+        document.addEventListener('DOMContentLoaded', function () {
+            const backButton = document.querySelector('nav button');
+            backButton.addEventListener('click', function () {
+                window.history.back();
+            });
+        });
+    </script>
+    <script id="card-interactions">
+        document.addEventListener('DOMContentLoaded', function () {
+            const cards = document.querySelectorAll('.bg-white.rounded-lg.shadow-sm');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-2px)';
+                    this.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
+                    this.style.transition = 'all 0.2s ease-in-out';
+                });
+                card.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)';
+                });
+            });
+        });
+    </script>
+    <script>
+        !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], u.toString = function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e }, u.people.toString = function () { return u.toString(1) + ".people (stub)" }, o = "init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
+        posthog.init('phc_t9tkQZJiyi2ps9zUYm8TDsL6qXo4YmZx0Ot5rBlAlEd', {
+            api_host: 'https://us.i.posthog.com',
+            autocapture: false,
+            capture_pageview: false,
+            capture_pageleave: false,
+            capture_performance: {
+                web_vitals: false,
+            },
+            rageclick: false,
+        })
+        window.shareKey = 'OozpWCPm5tKPLsuq9sLWtQ';
+        window.host = 'readdy.ai';
+    </script>
+</body>
+
+</html>
