@@ -101,11 +101,26 @@
                   Choisir depuis la galerie
                 </button>
               </div>
+
+              <div class="flex flex-col sm:flex-row gap-3 w-full max-w-md mx-auto">
+  <!-- Bouton photo -->
+  <button type="button"
+    class="flex-1 bg-primary text-white px-4 py-3 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors flex items-center justify-center">
+    <i class="ri-camera-line text-lg mr-2"></i>
+    <span class="truncate">Prendre une photo</span>
+  </button>
+
+  <!-- Bouton galerie -->
+  <button type="button"
+    class="flex-1 bg-white text-gray-700 border border-gray-300 px-4 py-3 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors flex items-center justify-center">
+    <i class="ri-folder-line text-lg mr-2"></i>
+    <span class="truncate">Choisir depuis la galerie</span>
+  </button>
+</div>
             </div>
             <div id="media-preview" class="grid grid-cols-2 md:grid-cols-4 gap-4 hidden">
               <div class="relative bg-gray-100 rounded-lg aspect-square">
                 <img
-                  src="https://readdy.ai/api/search-image?query=Traffic%20violation%20photo%20example%2C%20car%20running%20red%20light%20at%20intersection%2C%20clear%20license%20plate%20visible%2C%20urban%20street%20setting%2C%20daytime%20photography%2C%20evidence%20documentation%20style&width=200&height=200&seq=violation-example1&orientation=squarish"
                   alt="Photo d'infraction" class="w-full h-full object-cover rounded-lg" />
                 <button type="button"
                   class="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600 transition-colors">
