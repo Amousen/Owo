@@ -1234,8 +1234,7 @@
     </style>
 </head>
 
-<body class="bg-white" cz-shortcut-listen="true"><audio class="audio-for-speech" src=""></audio>
-
+<body class="bg-white">
 
     <!-- Navigation -->
     <nav class="bg-white shadow-sm sticky top-0 z-50">
@@ -1250,17 +1249,18 @@
                         <a href="index.html"
                             class="text-gray-900 hover:text-primary px-3 py-2 text-sm font-medium">Accueil
                         </a>
-                        <a href="signler.html" data-readdy="true"
+                        <a href="signale.html" data-readdy="true"
                             class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium">Signaler
+                        </a>
+                        <a href="signalement.html"
+                            class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium">Mes Signalements
                         </a>
                         <a href="about.html" class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium">A
                             propos
                         </a>
                         <a href="contact.html"
-                        class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium">Contact
-                    </a>
-                        <a href="guide.html"
-                            class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium">Guide</a>
+                            class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium">Contact
+                        </a>
                     </div>
                 </div>
                 <div class="hidden md:flex items-center space-x-4">
@@ -1280,30 +1280,32 @@
                 <div class="px-2 pt-2 pb-3 space-y-1">
                     <a href="index.html" class="block text-gray-900 hover:text-primary px-3 py-2 
                         text-base font-medium border-l-4 border-transparent hover:border-primary">Accueil</a>
+
                     <a href="signale.html" data-readdy="true" class="block text-gray-600 hover:text-primary px-3 py-2 
                         text-base font-medium border-l-4 border-transparent hover:border-primary">Signaler</a>
+
+                    <a href="signalement.html" class="block text-gray-600 hover:text-primary px-3 py-2 
+                    text-base font-medium border-l-4 border-transparent hover:border-primary">Mes Signalements</a>
                     <a href="about.html" class="block text-gray-600 hover:text-primary px-3 py-2 
                     text-base font-medium border-l-4 border-transparent hover:border-primary">A propos</a>
 
                     <a href="contact.html" class="block text-gray-600 hover:text-primary px-3 py-2 
                     text-base font-medium border-l-4 border-transparent hover:border-primary">Contact</a>
-                    
-                    <a href="guide.html"
-                        class="block text-gray-600 hover:text-primary px-3 py-2 text-base font-medium border-l-4 border-transparent hover:border-primary">Guide</a>
+
                     <div class="mt-4 px-3">
                         <a href="connexion.html">
-                            <button
-                                class="w-full bg-primary text-white px-6 py-2 !rounded-button 
+                            <button class="w-full bg-primary text-white px-6 py-2 !rounded-button 
                                 text-sm font-medium hover:bg-blue-700 transition-colors whitespace-nowrap">
                                 Se connecter
                             </button>
                         </a>
                     </div>
                 </div>
-                <br>
             </div>
         </div>
     </nav>
+
+
     <div class="relative  from-blue-50 to-cyan-50 py-12 md:py-20 text-white" style="background-color: #3b82f6;">
         <!-- <div class="absolute inset-0 bg-white bg-opacity-80"></div> -->
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -1617,31 +1619,52 @@
         class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full shadow-lg hover:bg-blue-600 transition-all opacity-0 invisible">
         <i class="ri-arrow-up-line"></i>
     </button>
-    <script type="text/javascript" crossorigin="anonymous"
-        src="./À Propos de CivActu - Citoyens pour la Sécurité Routière_files/surveys.js.téléchargement"></script>
-    <script type="text/javascript" crossorigin="anonymous"
-        src="./À Propos de CivActu - Citoyens pour la Sécurité Routière_files/config.js.téléchargement"></script>
-    <script type="text/javascript" crossorigin="anonymous"
-        src="./À Propos de CivActu - Citoyens pour la Sécurité Routière_files/dead-clicks-autocapture.js.téléchargement"></script>
-    <script id="back-to-top">
+    
+    <script id="mobile-menu">
         document.addEventListener('DOMContentLoaded', function () {
-            const backToTopBtn = document.getElementById('backToTop');
-            window.addEventListener('scroll', function () {
-                if (window.pageYOffset > 300) {
-                    backToTopBtn.classList.remove('opacity-0', 'invisible');
-                    backToTopBtn.classList.add('opacity-100', 'visible');
-                } else {
-                    backToTopBtn.classList.add('opacity-0', 'invisible');
-                    backToTopBtn.classList.remove('opacity-100', 'visible');
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function () {
+                    mobileMenu.classList.toggle('hidden');
+                    const menuIcon = mobileMenuButton.querySelector('i');
+                    if (mobileMenu.classList.contains('hidden')) {
+                        menuIcon.classList.remove('ri-close-line');
+                        menuIcon.classList.add('ri-menu-line');
+                    } else {
+                        menuIcon.classList.remove('ri-menu-line');
+                        menuIcon.classList.add('ri-close-line');
+                    }
+                });
+            }
+            document.addEventListener('click', function (event) {
+                if (!mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target) && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    const menuIcon = mobileMenuButton.querySelector('i');
+                    menuIcon.classList.remove('ri-close-line');
+                    menuIcon.classList.add('ri-menu-line');
                 }
             });
-            backToTopBtn.addEventListener('click', function () {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
+        });
+    </script>
+    <script id="smooth-scroll">
+        document.addEventListener('DOMContentLoaded', function () {
+            const links = document.querySelectorAll('a[href^="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
                 });
             });
         });
+    </script>
+
     </script>
     <script id="mobile-menu">
         document.addEventListener('DOMContentLoaded', function () {
